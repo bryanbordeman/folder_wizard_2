@@ -3,17 +3,195 @@
   <head>
     <meta charset="UTF-8">
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <link href="./styles.css" rel="stylesheet">
-    <title>Hello World!</title>
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'"> -->
+    <link rel='stylesheet' type='text/css' href='./src/css/bootstrap.css' />
+    <style>
+      ::-webkit-calendar-picker-indicator {
+        filter: invert(1);
+    }
+    </style>
+    <script type='text/javascript' src='./src/js/jquery-3.6.0.min.js'></script>
+    <script type='text/javascript' src='./src/js/bootstrap.bundle.js'></script>
+    <script type='text/javascript' src='./src/js/addCustomer.js'></script>
+    <script type='text/javascript' src='./src/js/createDropdown.js'></script>
+    
+    <!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> -->
+    <script type='text/javascript' src='./src/js/linker.js'></script>
+
+    <title>Folder Wizard 2.0</title>
   </head>
   <body>
-    <h1>Hello World!</h1>
-    We are using Node.js <span id="node-version"></span>,
-    Chromium <span id="chrome-version"></span>,
-    and Electron <span id="electron-version"></span>.
+    <div class="container mt-4">
+      <img class="mx-auto d-block" src="./src/images/logo.png" alt="Logo" width="50%">
+    </div>
+    <div class="container mt-4">
+      <div class="accordion accordion-flush" id="accordionFlushExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingOne">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+              Opportunity 
+            </button>
+          </h2>
+          <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="projectName"
+                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                maxlength = "27">
+                <label for="floatingProjectName">Project Name</label>
+              </div>
+              <div class="row mb-3">
+              <div class="col">
+                <div class="form-floating">
+                  <select class="form-select" id="project-category" aria-label="Project Category">
+                    <option value="" selected disabled hidden>Select Category</option>
+                  </select>
+                  <label for="floatingSelectGrid">Project Category</label>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-floating">
+                  <select class="form-select" id="project-type" aria-label="Project Type">
+                    <option value="" selected disabled hidden>Select Category First</option>
+                  </select>
+                  <label for="floatingSelectGrid">Project Type</label>
+                </div>
+              </div>
+            </div>
+            <div class="form-floating mb-3">
+              <select class="form-select" id="manager" aria-label="Manager">
+                <option value="" selected disabled hidden>Select Manager</option>
+              </select>
+              <label for="floatingSelectGrid">Manager</label>
+            </div>
+            <div class="row">
+              <div class="col"> 
+                <div class="form-floating mb-3">
+                    <input type="number" class="form-control" id="projectZip"
+                    oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                    maxlength = "5">
+                    <label for="floatingProjectZip">Project Zip</label>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-floating mb-3">
+                  <input type="date" class="form-control" id="dueDate">
+                  <label for="floatingDueDate">Due Date</label>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-9">
+                <div class="form-floating  mb-3">
+                  <input type="text" id="customer" class="form-control" aria-describedby="button-addon2">
+                  <label for="floatingCustomer">Customer</label>
+                </div> 
+              </div>
+              <div class="col-sm-3 d-flex justify-content-center">
+                <button class="btn btn-outline-light p-1" type="button" id="button-addon2" style="width:90px;" onclick="addCustomer()">Add</button>
+              </div>
+            </div>
+            <ul class="list-group" id="dynamic-list"></ul>
+                <hr class="mt-0" style="background-color: white; height: 1px; border: 0;">
+                <div class="row mt-3">
+                  <div class="col">
+                    <button class="btn btn-outline-light p-3" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Create Opportunity</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+              Project
+            </button>
+          </h2>
+          <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">
+
+
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+              Service
+            </button>
+          </h2>
+          <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">
+
+
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingFour">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+              HSE Project
+            </button>
+          </h2>
+          <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">
+          
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-white text-dark">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalToggleLabel">Confirm</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            Are you sure you want to create Opportunity Q21-305?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal" onclick="get_input()">Create</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-white text-dark">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalToggleLabel2">Confirmation</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            Q21-305 Folder was successfully created!!
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-primary" data-bs-dismiss="modal" >Create Another folder</button>
+            <button type="button" id="closeApp" class="btn btn-secondary" data-bs-dismiss="modal">Close Program</button>
+          </div>
+        </div>
+      </div>
+    </div>
+   
+
+    <script language="javascript" type="text/javascript">  
+      createDropdownProject() //load project category and project type to dropdown menus
+      createDropdownManager() //load managers to dropdown menu
+    </script>
+
+    <script>
+    
+    </script>
 
     <!-- You can also require other files to run in this process -->
-    <script src="./renderer.js"></script>
+    <!-- <script src="./renderer.js"></script> -->
   </body>
 </html>
