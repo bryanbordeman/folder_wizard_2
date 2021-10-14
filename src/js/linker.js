@@ -1,12 +1,25 @@
-function get_input() {
+function get_opp_input() {
   
     let {PythonShell} = require('python-shell')
     var path = require("path")
-    var input = document.getElementById("projectName").value
+    var project_name = document.getElementById("project-name").value
+    var project_category = document.getElementById("project-category").value
+    var project_type = document.getElementById("project-type").value
+    var manager = document.getElementById("manager").value
+    var project_zip = document.getElementById("project-zip").value
+    var due_date = document.getElementById("due-date").value
+    
+    // make customers list from ul element
+    var ul = document.getElementById("dynamic-list");
+    const listItems = ul.getElementsByTagName('li');
+    var customers = []
+    for (let i = 0; i <= listItems.length - 1; i++) {
+        customers.push(listItems[i].innerText);
+    }
  
     var options = {
         scriptPath : path.join(__dirname, './engine/'),
-        args : [input]
+        args : [project_name, project_category , project_type, manager, project_zip, due_date, customers]
     }
    
     
@@ -18,7 +31,13 @@ function get_input() {
             console.log(message);
             })
         
-    document.getElementById("projectName").value = "";
+    document.getElementById("project-name").value = "";
+    document.getElementById("project-category").value = "";
+    document.getElementById("project-type").value = "";
+    document.getElementById("manager").value = "";
+    document.getElementById("project-zip").value = "";
+    document.getElementById("due-date").value = "";
+    document.getElementById("dynamic-list").value = "";
 
     }
 

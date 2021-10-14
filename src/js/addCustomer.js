@@ -4,7 +4,6 @@ function addCustomer() {
     var li = document.createElement("li");
     var span = document.createElement("span");
     var txt = document.createTextNode("\u00D7");
-    //span.className = "btn-close btn-close-white";
     
     span.appendChild(txt);
     span.setAttribute('style',"color: white; font-size: 32px; padding: 0; text-align: center; margin-right: 20px; center; cursor: pointer;");
@@ -18,4 +17,5 @@ function addCustomer() {
     li.setAttribute('class',"list-group-item border-2 border-primary mb-1 text-left pt-0 pb-0");
     li.appendChild(document.createTextNode(customer.value));
     customer.value = ''; // clear input field
+    
 }

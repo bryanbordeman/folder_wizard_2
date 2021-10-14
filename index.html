@@ -35,7 +35,7 @@
           <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body">
               <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="projectName"
+                <input type="text" class="form-control" id="project-name"
                 oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                 maxlength = "27">
                 <label for="floatingProjectName">Project Name</label>
@@ -67,7 +67,7 @@
             <div class="row">
               <div class="col"> 
                 <div class="form-floating mb-3">
-                    <input type="number" class="form-control" id="projectZip"
+                    <input type="number" class="form-control" id="project-zip"
                     oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                     maxlength = "5">
                     <label for="floatingProjectZip">Project Zip</label>
@@ -75,7 +75,7 @@
               </div>
               <div class="col">
                 <div class="form-floating mb-3">
-                  <input type="date" class="form-control" id="dueDate">
+                  <input type="date" class="form-control" id="due-date">
                   <label for="floatingDueDate">Due Date</label>
                 </div>
               </div>
@@ -158,7 +158,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-            <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal" onclick="get_input()">Create</button>
+            <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal" onclick="get_opp_input()">Create</button>
           </div>
         </div>
       </div>

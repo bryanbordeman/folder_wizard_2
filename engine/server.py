@@ -4,10 +4,16 @@
 
 import sys
 import os
-input = sys.argv[1]
+project_name = sys.argv[1]
+project_category = sys.argv[2]
+project_type = sys.argv[3]
+manager = sys.argv[4]
+project_zip = sys.argv[5]
+due_date = sys.argv[6]
+customers = sys.argv[7]
 
-processded_data = input
-print('python side!!' + processded_data)
+processded_data = 'Project Name: ' + project_name + '\n' + 'Project Category: ' + project_category + '\n' + 'Project Type: ' + project_type + '\n' + 'Manager: ' + manager + '\n' + 'Project Zip: ' + project_zip + '\n' + 'Due Date: ' + due_date + '\n' + 'Customers: ' + customers
+print(processded_data)
 sys.stdout.flush()
 
 
