@@ -30,14 +30,15 @@ function get_opp_input() {
     pyshell.on('message', function(message) {
             console.log(message);
             })
-        
+    
+    // clean form after submit
     document.getElementById("project-name").value = "";
     document.getElementById("project-category").value = "";
     document.getElementById("project-type").value = "";
     document.getElementById("manager").value = "";
     document.getElementById("project-zip").value = "";
     document.getElementById("due-date").value = "";
-    document.getElementById("dynamic-list").value = "";
+    ul.replaceChildren(); // clean list of customers
 
     }
 

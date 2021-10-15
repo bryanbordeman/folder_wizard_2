@@ -1,0 +1,20 @@
+/* styles.css */
+
+/* Add styles here to customize the appearance of your app */
+
+::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+.close {
+  color: white; 
+  font-size: 29px; 
+  text-align: center;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  right: 0%;
+  padding: 0px 14px 0px 16px;
+  transform: translate(0%, -50%);
+}
+
+.close:hover {background: #6f42c1;}

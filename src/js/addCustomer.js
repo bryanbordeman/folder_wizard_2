@@ -5,8 +5,10 @@ function addCustomer() {
     var span = document.createElement("span");
     var txt = document.createTextNode("\u00D7");
     
+    if (customer.value != "") {
     span.appendChild(txt);
-    span.setAttribute('style',"color: white; font-size: 32px; padding: 0; text-align: center; margin-right: 20px; center; cursor: pointer;");
+    span.setAttribute('class',"close");
+
     span.addEventListener('click', () => {
         li.remove();
     });
@@ -14,8 +16,12 @@ function addCustomer() {
     li.appendChild(span);
     ul.appendChild(li);
     li.setAttribute('id', customer.value);
-    li.setAttribute('class',"list-group-item border-2 border-primary mb-1 text-left pt-0 pb-0");
+    li.setAttribute('class',"list-group-item border-2 border-primary mb-1 text-left");
     li.appendChild(document.createTextNode(customer.value));
     customer.value = ''; // clear input field
-    
+} else {
+    console.log('enter customer')
 }
+
+    
+};

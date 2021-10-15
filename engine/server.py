@@ -4,6 +4,8 @@
 
 import sys
 import os
+
+
 project_name = sys.argv[1]
 project_category = sys.argv[2]
 project_type = sys.argv[3]
@@ -17,16 +19,16 @@ print(processded_data)
 sys.stdout.flush()
 
 
-# def make_readme(quote):
-#     name_of_file = str(processded_data)
-#     path = f'./Users/bryanbordeman/Desktop'
-#     completeName = os.path.join(path, name_of_file + ".txt")
+def make_readme(quote):
+    name_of_file = 'README'
+    path = f'/Users/bryanbordeman/Desktop'
+    completeName = os.path.join(path, name_of_file + ".txt")
 
-#     readme = open(completeName, "w")
+    readme = open(completeName, "w")
 
-#     opportunity_info = f'{processded_data}'
+    opportunity_info = f'{processded_data}'
 
-#     readme.write(opportunity_info)
-#     readme.close()
+    readme.write(opportunity_info)
+    readme.close()
 
 # make_readme(processded_data)
