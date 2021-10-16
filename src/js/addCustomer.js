@@ -4,6 +4,8 @@ function addCustomer() {
     var li = document.createElement("li");
     var span = document.createElement("span");
     var txt = document.createTextNode("\u00D7");
+    var customerToast = document.getElementById('customerToast');
+    var toast = new bootstrap.Toast(customerToast);
     
     if (customer.value != "") {
     span.appendChild(txt);
@@ -19,8 +21,10 @@ function addCustomer() {
     li.setAttribute('class',"list-group-item border-2 border-primary mb-1 text-left");
     li.appendChild(document.createTextNode(customer.value));
     customer.value = ''; // clear input field
+    toast.dispose()
 } else {
-    console.log('enter customer')
+    //console.log('enter customer')
+    toast.show()
 }
 
     
