@@ -21,8 +21,7 @@ function get_opp_input() {
         scriptPath : path.join(__dirname, './engine/'),
         args : [project_name, project_category , project_type, manager, project_zip, due_date, customers]
     }
-   
-    
+
     let pyshell = new PythonShell('server.py', options);
     // pyshell.on('message', function(message) {
     // swal(message);
@@ -30,6 +29,11 @@ function get_opp_input() {
     pyshell.on('message', function(message) {
             console.log(message);
             })
+
+    pyshell.on('error', (error) => {
+        console.log(`error: ${error.message}`);
+    });
+    
     
     // clean form after submit
     document.getElementById("project-name").value = "";
@@ -42,19 +46,28 @@ function get_opp_input() {
 
     }
 
-//     const {PythonShell} = require('python-shell');
+function testError(){
 
-//     let pyshell = new PythonShell('./engine/server.py');
+    var project_name = document.getElementById("project-name").value
+    const {PythonShell} = require('python-shell');
+    var path = require("path")
 
-//     pyshell.on('message', function(message) {
-//     console.log(message);
-//     })
+    var options = {
+        scriptPath : path.join(__dirname, './engine/'),
+        args : [project_name],
 
-//     pyshell.end(function (err) {
-//     if (err){
-//         throw err;
-//     };
-//     console.log('finished');
-//     });
-// }
-    
+    }
+
+    let pyshell = new PythonShell('test_error.py', options);
+
+    pyshell.on('message', function(message) {
+    console.log(message);
+    })
+
+    pyshell.end(function (err) {
+    if (err){
+        throw err;
+    };
+    console.log('finished');
+    });
+}

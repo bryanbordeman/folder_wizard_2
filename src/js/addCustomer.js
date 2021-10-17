@@ -21,10 +21,12 @@ function addCustomer() {
     li.setAttribute('class',"list-group-item border-2 border-primary mb-1 text-left");
     li.appendChild(document.createTextNode(customer.value));
     customer.value = ''; // clear input field
-    toast.dispose()
+    customer.setAttribute('class',"form-control is-valid");
+    setTimeout(() => { customer.setAttribute('class',"form-control"); }, 1000); // clear validation prompt
+    
 } else {
-    //console.log('enter customer')
-    toast.show()
+    customer.setAttribute('class',"form-control is-invalid");
+
 }
 
     

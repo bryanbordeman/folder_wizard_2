@@ -34,116 +34,128 @@
           </h2>
           <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body">
-              <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="project-name"
-                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                maxlength = "27">
-                <label for="floatingProjectName">Project Name</label>
-              </div>
-              <div class="row mb-3">
-              <div class="col">
-                <div class="form-floating">
-                  <select class="form-select" id="project-category" aria-label="Project Category">
-                    <option value="" selected disabled hidden>Select Category</option>
-                  </select>
-                  <label for="floatingSelectGrid">Project Category</label>
-                </div>
-              </div>
-              <div class="col">
-                <div class="form-floating">
-                  <select class="form-select" id="project-type" aria-label="Project Type">
-                    <option value="" selected disabled hidden>Select Category First</option>
-                  </select>
-                  <label for="floatingSelectGrid">Project Type</label>
-                </div>
-              </div>
-            </div>
-            <div class="form-floating mb-3">
-              <select class="form-select" id="manager" aria-label="Manager">
-                <option value="" selected disabled hidden>Select Manager</option>
-              </select>
-              <label for="floatingSelectGrid">Manager</label>
-            </div>
-            <div class="row">
-              <div class="col"> 
+              <form>
                 <div class="form-floating mb-3">
-                    <input type="number" class="form-control" id="project-zip"
-                    oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                    maxlength = "5">
-                    <label for="floatingProjectZip">Project Zip</label>
+                  <input type="text" class="form-control" id="project-name"
+                  oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                  maxlength = "27" required>
+                  <label for="floatingProjectName">Project Name</label>
                 </div>
-              </div>
-              <div class="col">
+                <div class="row mb-3">
+                  <div class="col">
+                    <div class="form-floating">
+                      <select class="form-select" id="project-category" aria-label="Project Category">
+                        <option value="" selected disabled hidden>Select Category</option>
+                      </select>
+                      <label for="floatingSelectGrid">Project Category</label>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="form-floating">
+                      <select class="form-select" id="project-type" aria-label="Project Type">
+                        <option value="" selected disabled hidden>Select Category First</option>
+                      </select>
+                      <label for="floatingSelectGrid">Project Type</label>
+                    </div>
+                  </div>
+                </div>
                 <div class="form-floating mb-3">
-                  <input type="date" class="form-control" id="due-date">
-                  <label for="floatingDueDate">Due Date</label>
+                  <select class="form-select" id="manager" aria-label="Manager">
+                    <option value="" selected disabled hidden>Select Manager</option>
+                  </select>
+                  <label for="floatingSelectGrid">Manager</label>
                 </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-9">
-                <div class="form-floating  mb-3">
-                  <input type="text" id="customer" class="form-control" aria-describedby="button-addon2">
-                  <label for="floatingCustomer">Customer</label>
-                </div> 
-              </div>
-              <div class="col-sm-3 d-flex justify-content-center">
-                <button class="btn btn-outline-light p-1" type="button" id="button-addon2" style="width:90px;" onclick="addCustomer()">Add</button>
-              </div>
-            </div>
-            <ul class="list-group" id="dynamic-list"></ul>
+                <div class="row">
+                  <div class="col"> 
+                    <div class="form-floating mb-3">
+                        <input type="number" class="form-control" id="project-zip"
+                        oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                        maxlength = "5">
+                        <label for="floatingProjectZip">Project Zip</label>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="form-floating mb-3">
+                      <input type="date" class="form-control" id="due-date">
+                      <label for="floatingDueDate">Due Date</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-9">
+                    <div class="form-floating  mb-3">
+                      <input type="text" id="customer" class="form-control" aria-describedby="button-addon2">
+                      <label for="floatingCustomer">Customer</label>
+                      <div class="invalid-feedback">
+                        Please enter Customer.
+                      </div>
+                      <div class="valid-feedback">
+                        Customer added.
+                      </div>
+                    </div> 
+                  </div>
+                  <div class="col-sm-3 d-flex justify-content-center">
+                    <button class="btn btn-outline-light p-1" type="button" id="button-addon2" style="width:90px;" onclick="addCustomer()">Add</button>
+                  </div>
+                </div>
+                <ul class="list-group" id="dynamic-list"></ul>
                 <hr class="mt-0" style="background-color: white; height: 1px; border: 0;">
                 <div class="row mt-3">
                   <div class="col">
-                    <button class="btn btn-outline-light p-3" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Create Opportunity</button>
+                    <button onclick="return false;" class="btn btn-outline-light p-3" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Create Opportunity</button>
                   </div>
                 </div>
-              </div>
+              </form>
             </div>
           </div>
         </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="flush-headingTwo">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-              Project
-            </button>
-          </h2>
-          <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body">
-
-
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="flush-headingThree">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-              Service
-            </button>
-          </h2>
-          <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body">
-
-
-            </div>
-          </div>
-        </div>
-
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="flush-headingFour">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
-              HSE Project
-            </button>
-          </h2>
-          <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body">
-          
-            </div>
-          </div>
-        </div>
-
       </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+            Project
+          </button>
+        </h2>
+        <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+
+
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+            Service
+          </button>
+        </h2>
+        <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+
+
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingFour">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+            HSE Project
+          </button>
+        </h2>
+        <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+        
+          </div>
+        </div>
+      </div>
+
     </div>
+  
+
+
+
 
 
     <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
@@ -178,24 +190,25 @@
             Q21-305 Folder was successfully created!!
           </div>
           <div class="modal-footer">
-            <button class="btn btn-primary" data-bs-dismiss="modal" >Create Another folder</button>
+            <button class="btn btn-primary" data-bs-dismiss="modal" onclick="testError()" >Create Another folder</button>
             <button type="button" id="closeApp" class="btn btn-secondary" data-bs-dismiss="modal">Close Program</button>
           </div>
         </div>
       </div>
     </div>
 
+    
     <div class="toast-container position-fixed top-0  p-3">
-      <div class="toast align-items-center bg-white text-dark border-3 border-primary" role="alert" id="customerToast" aria-live="assertive" aria-atomic="true">
+      <div class="toast align-items-center bg-white text-dark border-3 border-primary" role="alert" id="toast" aria-live="assertive" aria-atomic="true">
         <div class="d-flex">
           <div class="toast-body">
-          Enter Customer
+          masssage
         </div>
           <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
       </div>
     </div>
-   
+
 
     <script language="javascript" type="text/javascript">  
       createDropdownProject() //load project category and project type to dropdown menus
@@ -204,7 +217,7 @@
     
 
     <script>
-      
+
     
     </script>
 
