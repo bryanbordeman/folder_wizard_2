@@ -11,7 +11,6 @@ function openConfirmtionModal(){
     // make array of DOM objects
     confirmationArray = [project_name, project_category , project_type, manager, project_zip, due_date]
     
-
     let result = true;
     let resultsArray =[];
 

@@ -14,8 +14,7 @@
     <script type='text/javascript' src='./src/js/addCustomer.js'></script>
     <script type='text/javascript' src='./src/js/createDropdown.js'></script>
     <script type='text/javascript' src='./src/js/openConfirmationModal.js'></script>
-    
-    <!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> -->
+    <script type='text/javascript' src='./src/js/getDate.js'></script>
     <script type='text/javascript' src='./src/js/linker.js'></script>
 
     <title>Folder Wizard 2.0</title>
@@ -81,7 +80,7 @@
                   <div class="form-floating mb-3">
                       <input type="number" class="form-control" id="project-zip"
                       oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                      maxlength = "5">
+                      maxlength = "5" min="0">
                       <label for="floatingProjectZip">Project Zip</label>
                       <div class="invalid-feedback">
                         Enter Zip.
@@ -233,7 +232,7 @@
     
 
     <script>
-  
+      
     </script>
 
     <!-- You can also require other files to run in this process -->
