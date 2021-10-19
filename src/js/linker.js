@@ -14,7 +14,7 @@ function get_opp_input() {
     const listItems = ul.getElementsByTagName('li');
     var customers = []
     for (let i = 0; i <= listItems.length - 1; i++) {
-        customers.push(listItems[i].innerText);
+        customers.push(listItems[i].innerText.substring(1));
     }
  
     var options = {

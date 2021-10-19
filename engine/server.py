@@ -31,4 +31,4 @@ def make_readme(quote):
     readme.write(opportunity_info)
     readme.close()
 
-# make_readme(processded_data)
+make_readme(processded_data)
