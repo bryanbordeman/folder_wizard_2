@@ -16,6 +16,7 @@
     <script type='text/javascript' src='./src/js/openConfirmationModal.js'></script>
     <script type='text/javascript' src='./src/js/getDate.js'></script>
     <script type='text/javascript' src='./src/js/linker.js'></script>
+    <script type='text/javascript' src='./src/js/zip2State.js'></script>
 
     <title>Folder Wizard 2.0</title>
   </head>
@@ -78,7 +79,7 @@
               <div class="row">
                 <div class="col"> 
                   <div class="form-floating mb-3">
-                      <input type="number" class="form-control" id="project-zip"
+                      <input onchange="validateZip()" type="number" class="form-control" id="project-zip"
                       oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                       maxlength = "5" min="0">
                       <label for="floatingProjectZip">Project Zip</label>
