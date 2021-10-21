@@ -1,30 +1,26 @@
 const zipCodeList = require('./src/json/zipCode.json'); // load json to list
 
-
 function validateZip(){
-    // console.log('validate input')
-
-// console.log(zipCodeList)
-// for (i = 0; i < zipCodeList.length; i++) {
-//     console.log(zipCodeList[i]);
-//   }
-    var zip_var = 7004
-   
-    var state = ""
-    var state_code = ""
-
-    for (i = 0; i < zipCodeList.length; i++){
-
-        if (zipCodeList[i][2] <= zip_var && zipCodeList[i][3] >= zip_var) {
-            console.log(zipCodeList[i][0] + ", " + zipCodeList[i][1])
-            
-        } 
-        //     state_code = 'Invalid zip code'
-        // }
+    var zip_var = 0
+    var zipInput = document.getElementById('project-zip');
+    var validZip = document.getElementById('valid-zip');
+    var invalidZip = document.getElementById('invalid-zip');
+    if (zipInput) {
+        zip_var = zipInput.value
+    }
     
-//     // return state_code
-// }
-};
+    for (i = 0; i < zipCodeList.length; i++){
+        if (zipCodeList[i][2] <= zip_var && zipCodeList[i][3] >= zip_var) {
+            zipInput.setAttribute('class',"form-control is-valid");
+            validZip.innerHTML = zipCodeList[i][0] + ", " + zipCodeList[i][1];
+            break;
+        } else {
+            zipInput.setAttribute('class',"form-control is-invalid");
+            validZip.innerHTML = ''
+            invalidZip.innerHTML = 'Invalid zip code'
+        }
+    };
 };
 
 
+// ** make function that populates popover country code button

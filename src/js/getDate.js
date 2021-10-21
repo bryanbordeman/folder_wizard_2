@@ -14,7 +14,7 @@ function getDate() {
     } 
   
     today = yyyy + '-' + mm + '-' + dd;
-    console.log(today);
+    // console.log(today);
     document.getElementById("due-date").value = today;
   }
   

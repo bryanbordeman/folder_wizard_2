@@ -6,6 +6,8 @@ function openConfirmtionModal(){
     var project_type = document.getElementById("project-type");
     var manager = document.getElementById("manager");
     var project_zip = document.getElementById("project-zip");
+    var validZip = document.getElementById('valid-zip');
+    var invalidZip = document.getElementById('invalid-zip');
     var due_date = document.getElementById("due-date");
     
     // make array of DOM objects
