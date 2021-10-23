@@ -2,12 +2,13 @@
 Title:  zip_2_state.py
 Author:  Bryan Bordeman
 Start Date:  062219
-Updated:  102021 (Fixed NYC Boroughs)
+Updated:  102321 (Fixed NYC Boroughs)
 Version:  support script
 Notes: Added JSON read function
-
 ;=========================================='''
+
 import json
+
 
 def main():
     '''for testing only'''
@@ -28,16 +29,8 @@ def create_zip_list ():
     f.close()
     return zip_code_list
 
-
-zip_code_list = create_zip_list()
-country_idx = len(zip_code_list) - zip_code_list[-1][-1]
-country_code = [[i][0][0] for i in zip_code_list[country_idx:]]
-country_str = '* Non-US codes:\n'
-for i in zip_code_list[country_idx:]:
-    country_str += f'{[i][0][0]} = {[i][0][3]}\n'
-
-
 def find_state(zip_var):
+    ''''returns state based on zip code'''
     global zip_code_list
     state = ''
     state_code = ''
@@ -51,6 +44,7 @@ def find_state(zip_var):
             state_code = 'Invalid zip code'
     return state_code
 
+zip_code_list = create_zip_list()
 
 if __name__ == "__main__":
     main()

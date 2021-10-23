@@ -6415,7 +6415,7 @@ fieldset:disabled .btn {
   line-break: auto;
   font-size: 0.875rem;
   word-wrap: break-word;
-  background-color: #6f42c1;
+  background-color: #fff;
   background-clip: padding-box;
   border: 0 solid rgba(0, 0, 0, 0.2);
   border-radius: 0.3rem;
@@ -6449,7 +6449,7 @@ fieldset:disabled .btn {
 .bs-popover-top > .popover-arrow::after, .bs-popover-auto[data-popper-placement^="top"] > .popover-arrow::after {
   bottom: 0;
   border-width: 0.5rem 0.5rem 0;
-  border-top-color: #6f42c1;
+  border-top-color: rgb(206, 206, 206);
 }
 
 .bs-popover-end > .popover-arrow, .bs-popover-auto[data-popper-placement^="right"] > .popover-arrow {
@@ -6467,7 +6467,7 @@ fieldset:disabled .btn {
 .bs-popover-end > .popover-arrow::after, .bs-popover-auto[data-popper-placement^="right"] > .popover-arrow::after {
   left: 0;
   border-width: 0.5rem 0.5rem 0.5rem 0;
-  border-right-color: #6f42c1;
+  border-right-color: rgb(206, 206, 206);
 }
 
 .bs-popover-bottom > .popover-arrow, .bs-popover-auto[data-popper-placement^="bottom"] > .popover-arrow {
@@ -6483,7 +6483,7 @@ fieldset:disabled .btn {
 .bs-popover-bottom > .popover-arrow::after, .bs-popover-auto[data-popper-placement^="bottom"] > .popover-arrow::after {
   top: 0;
   border-width: 0 0.5rem 0.5rem 0.5rem;
-  border-bottom-color: #6f42c1;
+  border-bottom-color: rgb(206, 206, 206);
 }
 
 .bs-popover-bottom .popover-header::before, .bs-popover-auto[data-popper-placement^="bottom"] .popover-header::before {
@@ -6512,15 +6512,15 @@ fieldset:disabled .btn {
 .bs-popover-start > .popover-arrow::after, .bs-popover-auto[data-popper-placement^="left"] > .popover-arrow::after {
   right: 0;
   border-width: 0.5rem 0 0.5rem 0.5rem;
-  border-left-color: #6f42c1;
+  border-left-color: rgb(206, 206, 206);
 }
 
 .popover-header {
   padding: 0.5rem 1rem;
   margin-bottom: 0;
   font-size: 1rem;
-  color: #fff;
-  background-color: #683eb5;
+  color: #170229;
+  background-color: rgb(206, 206, 206);
   border-bottom: 0 solid rgba(0, 0, 0, 0.2);
   border-top-left-radius: 0.3rem;
   border-top-right-radius: 0.3rem;
@@ -6532,7 +6532,7 @@ fieldset:disabled .btn {
 
 .popover-body {
   padding: 1rem 1rem;
-  color: #fff;
+  color: #170229;
 }
 
 .carousel {

@@ -24,3 +24,26 @@ function validateZip(){
 
 
 // ** make function that populates popover country code button
+
+function countryPopover() {
+    var countryIdx = (zipCodeList[zipCodeList.length - 1])[3] + 1// get index of counrties
+    var counrtyCodeContentList = []
+    var counrtyCodeContent = '';
+    for (i = 1; i < countryIdx; i++){
+        counrtyCodeContentList.unshift(zipCodeList[zipCodeList.length - i])
+    }
+    for (i = 0; i < counrtyCodeContentList.length; i++){
+        counrtyCodeContent += '<p class="m-0 p-0">' + (counrtyCodeContentList[i][2]) + ' = ' + (counrtyCodeContentList[i][0]) + ', ' + (counrtyCodeContentList[i][1])+'</p>';
+
+    }
+
+    $(document).ready(function(){
+        $("#counrty-code").popover({
+            title : "Non-US codes",
+            html: true,
+            content : function() {
+                return counrtyCodeContent;
+            }
+        });
+        });
+};
