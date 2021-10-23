@@ -19,7 +19,8 @@ function get_opp_input() {
  
     var options = {
         scriptPath : path.join(__dirname, './engine/'),
-        args : [project_name, project_category , project_type, manager, project_zip, due_date, customers]
+        args : [project_name, project_category , project_type, manager, project_zip, due_date, customers],
+        env: process.env,
     }
 
     let pyshell = new PythonShell('server.py', options);
