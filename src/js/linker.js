@@ -1,3 +1,6 @@
+
+console.log(mList["MRI"][0][1]);
+
 function get_opp_input() {
   
     let {PythonShell} = require('python-shell')
@@ -8,18 +11,26 @@ function get_opp_input() {
     var manager = document.getElementById("manager").value
     var project_zip = document.getElementById("project-zip").value
     var due_date = document.getElementById("due-date").value
-    
+
+    var type_code = ''
+    // find type code
+    for (i = 0; i <= mList[project_category].length - 1; i++) {
+        if (mList[project_category][i][0] == project_type) {
+            type_code = mList[project_category][i][1];
+        }
+    }
+
     // make customers list from ul element
     var ul = document.getElementById("dynamic-list");
     const listItems = ul.getElementsByTagName('li');
     var customers = []
-    for (let i = 0; i <= listItems.length - 1; i++) {
+    for (i = 0; i <= listItems.length - 1; i++) {
         customers.push(listItems[i].innerText.substring(1));
     }
- 
+  
     var options = {
         scriptPath : path.join(__dirname, './engine/'),
-        args : [project_name, project_category , project_type, manager, project_zip, due_date, customers],
+        args : [project_name, project_category , project_type, type_code, manager, project_zip, due_date, customers],
         env: process.env,
     }
 
