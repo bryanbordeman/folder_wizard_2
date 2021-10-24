@@ -1,5 +1,4 @@
 
-console.log(mList["MRI"][0][1]);
 
 function get_opp_input() {
   
@@ -25,7 +24,8 @@ function get_opp_input() {
     const listItems = ul.getElementsByTagName('li');
     var customers = []
     for (i = 0; i <= listItems.length - 1; i++) {
-        customers.push(listItems[i].innerText.substring(1));
+        // substring to omit new line and * at from of string
+        customers.push(listItems[i].innerText.substring(2));
     }
   
     var options = {

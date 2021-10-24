@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-@dataclass(init=True)
+@dataclass
 class Opportunity:
         quote_number: str
         project_name: str
@@ -15,5 +15,5 @@ class Opportunity:
 
         # quote = f'{self.quote_number} {self.manager} {self.project_name} {self.type_code}'
 
-quote = Opportunity(quote_number = "", project_name = "Test", project_category="",project_type="", type_code="", project_zip="", customer_list = [], bid_due="", manager="")
-print(quote.project_name)
+# quote = Opportunity(quote_number = "", project_name = "Test", project_category="",project_type="", type_code="", project_zip="", customer_list = [], bid_due="", manager="")
+# print(quote.project_name)
