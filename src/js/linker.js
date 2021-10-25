@@ -58,28 +58,33 @@ function get_opp_input() {
 
     }
 
-function testError(){
 
-    var project_name = document.getElementById("project-name").value
-    const {PythonShell} = require('python-shell');
+function get_next_number() {
+
+    let {PythonShell} = require('python-shell')
     var path = require("path")
+    // var next_opp_num = document.getElementById("next-opp-num").value
 
     var options = {
         scriptPath : path.join(__dirname, './engine/'),
-        args : [project_name],
-
+        env: process.env,
     }
 
-    let pyshell = new PythonShell('test_error.py', options);
-
+    let pyshell = new PythonShell('get_next_num.py', options);
+    // pyshell.on('message', function(message) {
+    // swal(message);
+    // })
     pyshell.on('message', function(message) {
-    console.log(message);
-    })
+        document.getElementById("next-opp-num").innerHTML = "Are you sure you want to create Opportunity " + message + "?"
+        console.log(message);
+            
+            })
 
-    pyshell.end(function (err) {
-    if (err){
-        throw err;
-    };
-    console.log('finished');
+    pyshell.on('error', (error) => {
+        console.log(`error: ${error.message}`);
     });
-}
+
+    
+    
+    }
+

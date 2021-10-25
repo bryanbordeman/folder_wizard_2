@@ -37,5 +37,6 @@ function openConfirmtionModal(){
     // if all inputs are valid show modal
     if (result == true) {
         $("#varificationModal").modal('show');
+        get_next_number();
     }
 }
