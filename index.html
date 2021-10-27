@@ -2,8 +2,8 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'"> -->
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'"> -->
     <link rel='stylesheet' type='text/css' href='./src/css/bootstrap.css' />
     <link rel='stylesheet' type='text/css' href='./src/css/styles.css' />
   
@@ -213,10 +213,12 @@
               <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
               <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
             </svg>
+            <div id="confirmation-message">
             Q21-305 Folder was successfully created!!
+            </div>
           </div>
           <div class="modal-footer">
-            <button class="btn btn-primary" data-bs-dismiss="modal" onclick="testError()" >Create Another folder</button>
+            <button class="btn btn-primary" data-bs-dismiss="modal">Create Another folder</button>
             <button type="button" id="closeApp" class="btn btn-secondary" data-bs-dismiss="modal">Close Program</button>
           </div>
         </div>
@@ -249,6 +251,6 @@
     </script>
 
     <!-- You can also require other files to run in this process -->
-    <!-- <script src="./renderer.js"></script> -->
+    <script src="./renderer.js"></script>
   </body>
 </html>
