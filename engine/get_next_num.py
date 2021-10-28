@@ -20,7 +20,7 @@ database = os.path.join(BASE_DIR, "protaskinate.db")
 def main():
     # print(get_next_opp_num('project'))
     # print(get_next_opp_num('opportunity'))
-    print(get_next_opp_num('service'))
+    print(get_next_num('service'))
     # add_to_table()
 
     # sys.stdout.write(get_next_opp_num(data_type))
@@ -32,7 +32,7 @@ def execute_db_query(query, parameters=()):
             conn.commit()
         return query_result
 
-def get_next_opp_num(data_type):
+def get_next_num(data_type):
     '''fetch opportunity from database'''
     year = time.strftime("%Y")[2:]
 

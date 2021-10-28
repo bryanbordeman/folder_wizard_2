@@ -1,4 +1,5 @@
 {
     "project_dir": "T:/Global",
-    "opportunity_dir": "/servergps/Documents on Server/RFQ's"
+    "service_dir": "T:/Global/Door Service",
+    "opportunity_dir": "T:/RFQ's"
 }
