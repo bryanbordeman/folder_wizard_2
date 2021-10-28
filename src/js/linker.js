@@ -59,16 +59,17 @@ function get_opp_input() {
     }
 
 
-function get_next_number() {
+function get_next_number(dataType) {
     
     let {PythonShell} = require('python-shell')
     var path = require("path")
     // var next_opp_num = document.getElementById("next-opp-num").value
-
+    
     var options = {
         scriptPath : path.join(__dirname, './engine/'),
         mode: 'text',
         encoding: 'UTF-8',
+        args : [dataType],
         pythonOptions: ['-u'],
         // env: process.env,
 
@@ -80,12 +81,13 @@ function get_next_number() {
     // swal(message);
     // })
     pyshell.on('message', function(message) {
-        localStorage.setItem("opp-num", message); //create local var
+        // localStorage.setItem("opp-num", message); //create local var
+        if (dataType == "opportunity"){
         document.getElementById("next-opp-num").innerHTML = "Are you sure you want to create Opportunity " + message + "?"
+        }
         // console.log(message);
-        var oppNum = localStorage.getItem("opp-num"); //get local var
+        // var oppNum = localStorage.getItem("opp-num"); //get local var
         // console.log(oppNum);
-            
             })
 
     pyshell.end(function (err,code,signal) {
