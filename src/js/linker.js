@@ -27,10 +27,11 @@ function get_opp_input() {
         // substring to omit new line and * at from of string
         customers.push(listItems[i].innerText.substring(2));
     }
-  
+    var quote_number = localStorage.getItem("quote_number"); //get local var
+
     var options = {
         scriptPath : path.join(__dirname, './engine/'),
-        args : [project_name, project_category , project_type, type_code, manager, project_zip, due_date, customers],
+        args : [project_name, project_category , project_type, type_code, managersList[manager], project_zip, due_date, customers, quote_number],
         env: process.env,
     }
 
@@ -42,9 +43,12 @@ function get_opp_input() {
             console.log(message);
             })
 
-    pyshell.on('error', (error) => {
-        console.log(`error: ${error.message}`);
-    });
+    pyshell.end(function (err,code,signal) {
+        if (err) throw err;
+        console.log('The exit code was: ' + code);
+        console.log('The exit signal was: ' + signal);
+        console.log('finished');
+        });
     
     
     // clean form after submit
@@ -81,12 +85,11 @@ function get_next_number(dataType) {
     // swal(message);
     // })
     pyshell.on('message', function(message) {
-        // localStorage.setItem("opp-num", message); //create local var
+        localStorage.setItem("quote_number", message); //create local var
         if (dataType == "opportunity"){
         document.getElementById("next-opp-num").innerHTML = "Are you sure you want to create Opportunity " + message + "?"
         }
         // console.log(message);
-        // var oppNum = localStorage.getItem("opp-num"); //get local var
         // console.log(oppNum);
             })
 
