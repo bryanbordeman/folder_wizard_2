@@ -1,6 +1,7 @@
 import json
 
-BASE_DIR = './src/json/directoryList.json'
+# FILE = '../src/json/directoryList.json'
+FILE = './src/json/directoryList.json'
 
 def main():
     '''ONLY FOR TESTING'''
@@ -9,9 +10,9 @@ def main():
     pass
 
 class Directory:
-    f = open(BASE_DIR,)
-    data = json.load(f)
-    f.close()
+    file = open(FILE,)
+    data = json.load(file)
+    file.close()
 
 class Opportunity_dir(Directory):
     directory = Directory.data['opportunity_dir']
