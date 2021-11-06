@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from create_directory import Opportunity_dir
+# from create_directory import Opportunity_dir
 
 def main():
     '''ONLY FOR TESTING'''
@@ -29,7 +29,7 @@ def main():
     project.labor_code = None
     project.order_type = 'House'
     project.price = 45.56
-    print(project.project_name)
+    print(project.price)
    
 
 @dataclass
@@ -43,7 +43,7 @@ class Opportunity:
     customer_list: str = None
     bid_due: str = None
     manager: str = None
-    directory: str = Opportunity_dir()
+    # directory: str = Opportunity_dir()
     
     def quote(self):
         quote = f'{self.quote_number} {self.manager} {self.project_name} {self.type_code}'

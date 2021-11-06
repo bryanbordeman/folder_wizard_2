@@ -146,6 +146,21 @@
         <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
           <div class="accordion-body">
 
+            
+              <div class="form-floating mb-3">
+                
+                <input type="text" class="form-control" id="project-opportunity" onkeypress="return /[0-9a-zA-Z ]/i.test(event.key)"
+                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                maxlength = "27" required>
+                <label for="floatingOpportuniryName">Opportunity</label>
+                <input type="file" class="form-control-file" id="opportunity-file" webkitdirectory directory multiple />
+              </div>
+
+              
+
+              
+            
+
 
           </div>
         </div>
@@ -310,7 +325,14 @@
     
 
     <script>
-    
+      projectOpportunity = document.getElementById('project-opportunity')
+      opportunityFile = document.getElementById('opportunity-file').files[0];
+
+      
+      if (opportunityFile) {
+        console.log(opportunityFile)
+      } 
+      
 
     </script>
 
