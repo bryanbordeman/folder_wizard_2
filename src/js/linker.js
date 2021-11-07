@@ -1,9 +1,113 @@
+let {PythonShell} = require('python-shell')
+var path = require("path")
 
+
+function createLog(){
+
+    var options = {
+        scriptPath : path.join(__dirname, './engine/'),
+        args : [],
+        env: process.env,
+    }
+    let pyshell = new PythonShell('create_log.py', options);
+  
+    pyshell.on('message', function(message) {
+        console.log(message);
+        failLog.setAttribute("style","display:none;");
+        successLog.setAttribute("style","display:inline;");
+        })
+
+    pyshell.end(function (err) {
+        if (err) {
+            console.log('Error')
+            successLog.setAttribute("style","display:none;");
+            failLog.setAttribute("style","display:inline;");
+        }
+        });
+    
+}
+
+function createReadme(){
+    var options = {
+        scriptPath : path.join(__dirname, './engine/'),
+        args : [],
+        env: process.env,
+    }
+    let pyshell = new PythonShell('create_readme.py', options);
+  
+    pyshell.on('message', function(message) {
+            console.log(message);
+            failReadme.setAttribute("style","display:none;");
+            successReadme.setAttribute("style","display:inline;");
+            })
+
+    pyshell.end(function (err) {
+        if (err) {
+        console.log('Error')
+        successReadme.setAttribute("style","display:none;");
+        failReadme.setAttribute("style","display:inline;");
+        }
+        });
+}
+
+
+function createFolder(){
+
+    var options = {
+        scriptPath : path.join(__dirname, './engine/'),
+        args : [],
+        env: process.env,
+    }
+    let pyshell = new PythonShell('create_folder.py', options);
+  
+    pyshell.on('message', function(message) {
+            console.log(message);
+            failFolder.setAttribute("style","display:none;");
+            uccessFolder.setAttribute("style","display:inline;");
+            })
+
+    pyshell.end(function (err) {
+        if (err) {
+        console.log('Error')
+        successFolder.setAttribute("style","display:none;");
+        failFolder.setAttribute("style","display:inline;");
+        }
+        });
+}
+
+function createRecord(){
+
+    var options = {
+        scriptPath : path.join(__dirname, './engine/'),
+        args : [],
+        env: process.env,
+    }
+    let pyshell = new PythonShell('create_record.py', options);
+  
+    pyshell.on('message', function(message) {
+            console.log(message);
+            failRecord.setAttribute("style","display:none;");
+            successRecord.setAttribute("style","display:inline;");
+            })
+
+    pyshell.end(function (err) {
+        if (err) {
+        console.log('Error')
+        successRecord.setAttribute("style","display:none;");
+        failRecord.setAttribute("style","display:inline;");
+        }
+        });
+}
 
 function get_opp_input() {
+
+    createLog()
+    createReadme()
+    createFolder()
+    createRecord()
   
-    let {PythonShell} = require('python-shell')
-    var path = require("path")
+    
+    // var path = require("path")
     var project_name = document.getElementById("project-name").value
     var project_category = document.getElementById("project-category").value
     var project_type = document.getElementById("project-type").value
@@ -65,8 +169,8 @@ function get_opp_input() {
 
 function get_next_number(dataType) {
     
-    let {PythonShell} = require('python-shell')
-    var path = require("path")
+    // let {PythonShell} = require('python-shell')
+    // var path = require("path")
     // var next_opp_num = document.getElementById("next-opp-num").value
     
     var options = {
@@ -75,7 +179,7 @@ function get_next_number(dataType) {
         encoding: 'UTF-8',
         args : [dataType],
         pythonOptions: ['-u'],
-        // env: process.env,
+        env: process.env,
 
         
     }
