@@ -2,11 +2,11 @@ let {PythonShell} = require('python-shell')
 var path = require("path")
 
 
-function createLog(){
+function createLog(args){
 
     var options = {
         scriptPath : path.join(__dirname, './engine/'),
-        args : [],
+        args :args,
         env: process.env,
     }
     let pyshell = new PythonShell('create_log.py', options);
@@ -15,6 +15,7 @@ function createLog(){
         console.log(message);
         failLog.setAttribute("style","display:none;");
         successLog.setAttribute("style","display:inline;");
+        createReadme();
         })
 
     pyshell.end(function (err) {
@@ -22,6 +23,12 @@ function createLog(){
             console.log('Error')
             successLog.setAttribute("style","display:none;");
             failLog.setAttribute("style","display:inline;");
+            successReadme.setAttribute("style","display:none;");
+            failReadme.setAttribute("style","display:inline;");
+            successFolder.setAttribute("style","display:none;");
+            failFolder.setAttribute("style","display:inline;");
+            successRecord.setAttribute("style","display:none;");
+            failRecord.setAttribute("style","display:inline;");
         }
         });
     
@@ -39,6 +46,7 @@ function createReadme(){
             console.log(message);
             failReadme.setAttribute("style","display:none;");
             successReadme.setAttribute("style","display:inline;");
+            createRecord();
             })
 
     pyshell.end(function (err) {
@@ -46,31 +54,10 @@ function createReadme(){
         console.log('Error')
         successReadme.setAttribute("style","display:none;");
         failReadme.setAttribute("style","display:inline;");
-        }
-        });
-}
-
-
-function createFolder(){
-
-    var options = {
-        scriptPath : path.join(__dirname, './engine/'),
-        args : [],
-        env: process.env,
-    }
-    let pyshell = new PythonShell('create_folder.py', options);
-  
-    pyshell.on('message', function(message) {
-            console.log(message);
-            failFolder.setAttribute("style","display:none;");
-            uccessFolder.setAttribute("style","display:inline;");
-            })
-
-    pyshell.end(function (err) {
-        if (err) {
-        console.log('Error')
         successFolder.setAttribute("style","display:none;");
         failFolder.setAttribute("style","display:inline;");
+        successRecord.setAttribute("style","display:none;");
+        failRecord.setAttribute("style","display:inline;");
         }
         });
 }
@@ -88,6 +75,7 @@ function createRecord(){
             console.log(message);
             failRecord.setAttribute("style","display:none;");
             successRecord.setAttribute("style","display:inline;");
+            createFolder()
             })
 
     pyshell.end(function (err) {
@@ -95,18 +83,40 @@ function createRecord(){
         console.log('Error')
         successRecord.setAttribute("style","display:none;");
         failRecord.setAttribute("style","display:inline;");
+        successFolder.setAttribute("style","display:none;");
+        failFolder.setAttribute("style","display:inline;");
         }
         });
 }
 
+function createFolder(){
+
+    var options = {
+        scriptPath : path.join(__dirname, './engine/'),
+        args : [],
+        env: process.env,
+    }
+    let pyshell = new PythonShell('create_folder.py', options);
+  
+    pyshell.on('message', function(message) {
+            console.log(message);
+            failFolder.setAttribute("style","display:none;");
+            successFolder.setAttribute("style","display:inline;");
+            })
+
+    pyshell.end(function (err) {
+        if (err) {
+        console.log('Error')
+        successFolder.setAttribute("style","display:none;");
+        failFolder.setAttribute("style","display:inline;");
+        }
+        });
+}
+
+
+
 function get_opp_input() {
 
-    createLog()
-    createReadme()
-    createFolder()
-    createRecord()
-  
-    
     // var path = require("path")
     var project_name = document.getElementById("project-name").value
     var project_category = document.getElementById("project-category").value
@@ -133,26 +143,25 @@ function get_opp_input() {
     }
     var quote_number = localStorage.getItem("quote_number"); //get local var
 
-    var options = {
-        scriptPath : path.join(__dirname, './engine/'),
-        args : [project_name, project_category , project_type, type_code, managersList[manager], project_zip, due_date, customers, quote_number],
-        env: process.env,
-    }
+    
+     var args = [project_name, project_category , project_type, type_code, managersList[manager], project_zip, due_date, customers, quote_number];
+     
+     createLog(args)
 
-    let pyshell = new PythonShell('server.py', options);
+    // let pyshell = new PythonShell('server.py', options);
     // pyshell.on('message', function(message) {
     // swal(message);
     // })
-    pyshell.on('message', function(message) {
-            console.log(message);
-            })
+    // pyshell.on('message', function(message) {
+    //         console.log(message);
+    //         })
 
-    pyshell.end(function (err,code,signal) {
-        if (err) throw err;
-        console.log('The exit code was: ' + code);
-        console.log('The exit signal was: ' + signal);
-        console.log('finished');
-        });
+    // pyshell.end(function (err,code,signal) {
+    //     if (err) throw err;
+    //     console.log('The exit code was: ' + code);
+    //     console.log('The exit signal was: ' + signal);
+    //     console.log('finished');
+    //     });
     
     
     // clean form after submit
@@ -161,7 +170,7 @@ function get_opp_input() {
     document.getElementById("project-type").value = "";
     document.getElementById("manager").value = "";
     document.getElementById("project-zip").value = "";
-    document.getElementById("due-date").value = "";
+    getDate(); // set due-date to today
     ul.replaceChildren(); // clean list of customers
 
     }
