@@ -1,28 +1,19 @@
 import sys
+from create_opportunity import create_opportunity
+# from zip_2_state import find_state
 
-project_name = sys.argv[1]
-project_category = sys.argv[2]
-project_type = sys.argv[3]
-type_code = sys.argv[4]
-manager = sys.argv[5]
-project_zip = sys.argv[6]
-due_date = sys.argv[7]
-customers = sys.argv[8]
-quote_number = sys.argv[9]
+def main():
+    print(create_log())
+    sys.stdout.flush()
 
+def create_log():
+    quote = create_opportunity() # make Opportunty object
+    # write Excel log 
+    # state = find_state(int(quote.project_zip))
+    
 
-processded_data = f'''Quote Number: {quote_number}\n
-Project Name: {project_name}\n
-Project Category: {project_category}\n
-Project Type: {project_type}\n
-Type Code: {type_code}\n
-Manager: {manager}\n
-Project Zip: {project_zip}\n
-Due Date: {due_date}\n
-Customers: {customers}
-'''
-# print(processded_data)
+    return quote
+    
 
-sys.stdout.flush()
-
-print('Log Created')
+if __name__ == "__main__":
+    main()

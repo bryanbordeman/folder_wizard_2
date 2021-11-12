@@ -124,6 +124,7 @@ function get_opp_input() {
     var manager = document.getElementById("manager").value
     var project_zip = document.getElementById("project-zip").value
     var due_date = document.getElementById("due-date").value
+    var directory = createDirectory().opportunityDirectory
 
     var type_code = ''
     // find type code
@@ -144,9 +145,9 @@ function get_opp_input() {
     var quote_number = localStorage.getItem("quote_number"); //get local var
 
     
-     var args = [project_name, project_category , project_type, type_code, managersList[manager], project_zip, due_date, customers, quote_number];
-     
-     createLog(args)
+    var args = [project_name, project_category , project_type, type_code, managersList[manager], project_zip, due_date, customers, quote_number, directory];
+    
+    createLog(args)
 
     // let pyshell = new PythonShell('server.py', options);
     // pyshell.on('message', function(message) {
@@ -172,6 +173,7 @@ function get_opp_input() {
     document.getElementById("project-zip").value = "";
     getDate(); // set due-date to today
     ul.replaceChildren(); // clean list of customers
+    
 
     }
 
@@ -212,8 +214,5 @@ function get_next_number(dataType) {
         console.log('The exit signal was: ' + signal);
         console.log('finished');
         });
-
-    
-    
     }
 
