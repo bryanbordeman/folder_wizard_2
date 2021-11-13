@@ -18,6 +18,26 @@ function createDropdownProject() {
       }
     });
 };
+
+function pCreateDropdownProject() {
+  el_parent = document.getElementById("p-project-category");
+  el_child = document.getElementById("p-project-type");
+  
+  for (key in mList) {
+    el_parent.innerHTML = el_parent.innerHTML + '<option>'+ key +'</option>';
+  }
+  
+  el_parent.addEventListener('change', function populate_child(e){
+    el_child.innerHTML = '';
+    itm = e.target.value;
+    if(itm in mList){
+        for (i = 0; i < mList[itm].length; i++) {
+          el_child.innerHTML = el_child.innerHTML + '<option>'+ mList[itm][i][0] +'</option>';
+        }
+    }
+  });
+};
+
   
 const managersList = require('./src/json/managerList.json'); // load json to list
 

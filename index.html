@@ -16,6 +16,10 @@
     <script type='text/javascript' src='./src/js/zip2State.js'></script>
     <script type='text/javascript' src='./src/js/createDirectory.js'></script>
 
+    <style>
+      
+    </style>
+
     <title>Folder Wizard 2.0</title>
   </head>
   <body>
@@ -25,7 +29,7 @@
     <div class="container mt-4">
       <div class="accordion accordion-flush" id="accordionFlushExample">
         <div class="accordion-item">
-          <h2 class="accordion-header" id="flush-headingOne">
+          <h2 class="accordion-header" id="opportunity">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
               Opportunity 
             </button>
@@ -139,7 +143,7 @@
       </div>
 
       <div class="accordion-item">
-        <h2 class="accordion-header" id="flush-headingTwo">
+        <h2 class="accordion-header" id="project">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
             Project
           </button>
@@ -147,21 +151,128 @@
         <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
           <div class="accordion-body">
 
-            
-              <div class="form-floating mb-3">
-                
-                <input type="text" class="form-control" id="project-opportunity" onkeypress="return /[0-9a-zA-Z ]/i.test(event.key)"
-                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                maxlength = "27" required>
-                <label for="floatingOpportuniryName">Opportunity</label>
-                <input type="file" class="form-control-file" id="opportunity-file" webkitdirectory directory multiple />
+            <div class="form-floating mb-3"> 
+              <input type="text" class="form-control" id="p-opportunity" onkeypress="return /[0-9a-zA-Z ]/i.test(event.key)"
+              oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+              maxlength = "27" required>
+              <label for="floatingOpportuniryName">Opportunity</label>
+              <input type="file" class="form-control-file" id="opportunity-file" webkitdirectory directory multiple />
+            </div>
+
+
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="p-project-name" onkeypress="return /[0-9a-zA-Z ]/i.test(event.key)"
+              oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+              maxlength = "27" required>
+              <label for="floatingProjectName">Project Name</label>
+              <div class="invalid-feedback">
+                Enter Project Name.
               </div>
+            </div>
 
-              
+            <div class="row mb-3">
+              <div class="col">
+                <div class="form-floating">
+                  <select class="form-select" id="p-project-category" aria-label="Project Category">
+                    <option value="" selected disabled hidden>Select Category</option>
+                  </select>
+                  <label for="floatingSelectGrid">Project Category</label>
+                  <div class="invalid-feedback">
+                    Select Category.
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-floating">
+                  <select class="form-select" id="p-project-type" aria-label="Project Type">
+                    <option value="" selected disabled hidden>Select Category First</option>
+                  </select>
+                  <label for="floatingSelectGrid">Project Type</label>
+                  <div class="invalid-feedback">
+                    Select Type.
+                  </div>
+                </div>
+              </div>
+            </div>
 
-              
+            <div class="row">
+              <div class="col-5"> 
+                <div class="form-floating mb-3">
+                    <input onkeyup="pValidateZip()" onchange="pValidateZip()" type="number" class="form-control" id="p-project-zip"
+                    oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                    maxlength = "5" min="0">
+                    <label for="floatingProjectZip">Project Zip</label>
+                    <div id="p-invalid-zip" class="invalid-feedback">
+                      Enter Zip.
+                    </div>
+                    <div id="p-valid-zip" class="valid-feedback">
+                      
+                    </div>
+                </div>
+              </div>
+              <div class="col p-0 m-0">
+                <a href="#" class="p-1 ml-0" tabindex="0"
+                  data-bs-container="body" data-bs-trigger="focus" data-bs-toggle="popover" data-bs-placement="bottom" 
+                  id="p-counrty-code">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                    <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                  </svg>
+                </a>
+              </div>
+              <div class="col-6">
+                <div class="form-floating mb-3">
+                  <input type="text" class="form-control" id="p-project-terms" onkeypress="return /[0-9a-zA-Z ]/i.test(event.key)"
+                  oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                  maxlength = "27" required>
+                  <label for="floatingProjectName">Project Terms</label>
+                  <div class="invalid-feedback">
+                    Enter Project Terms.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-floating mb-3">
+              <input type="text" id="customer" class="form-control" aria-describedby="button-addon2">
+              <label for="floatingCustomer">Customer</label>
+              <div class="invalid-feedback">
+                Enter Customer.
+              </div>
+            </div> 
             
-
+            <div class="row">
+              <div class="col">
+                <div class="form-floating mb-3">
+                  <select class="form-select" id="p-project-billing" aria-label="Billing Type">
+                    <option value="" selected disabled hidden>Select Billing Type</option>
+                  </select>
+                  <label for="floatingSelectGrid">Billing Type</label>
+                  <div class="invalid-feedback">
+                    Select Billing Type
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-floating mb-3">
+                  <select class="form-select" id="p-project-order" aria-label="Billing Type">
+                    <option value="" selected disabled hidden>Select Order Type</option>
+                  </select>
+                  <label for="floatingSelectGrid">Order Type</label>
+                  <div class="invalid-feedback">
+                    Select Order Type
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col">
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="p-tax" unchecked>
+                    <label class="form-check-label" for="p-tax">Tax Exempt?</label>
+                  </div>
+              </div>
+            </div>
 
           </div>
         </div>
@@ -319,7 +430,8 @@
 
 
     <script language="javascript" type="text/javascript">  
-      createDropdownProject() //load project category and project type to dropdown menus
+      createDropdownProject() //load project category and project type to opportinty dropdown menus
+      pCreateDropdownProject() //load project category and project type to project dropdown menus
       createDropdownManager() //load managers to dropdown menu
       countryPopover() // load country popover data
     </script>
