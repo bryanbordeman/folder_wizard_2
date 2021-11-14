@@ -1,4 +1,7 @@
 const mList = require('./src/json/projectCategoryList.json'); // load json to list
+const managersList = require('./src/json/managerList.json'); // load json to list
+const billingList = require('./src/json/billingList.json'); // load json to list
+const orderList = require('./src/json/orderList.json'); // load json to list
 
 function createDropdownProject() {
     el_parent = document.getElementById("project-category");
@@ -38,14 +41,28 @@ function pCreateDropdownProject() {
   });
 };
 
-  
-const managersList = require('./src/json/managerList.json'); // load json to list
 
 function createDropdownManager() {
     el_parent = document.getElementById("manager");
     
     for (key in managersList) {
-      // console.log(key)
       el_parent.innerHTML = el_parent.innerHTML + '<option>'+ key +'</option>';
     };
+};
+
+
+function createDropdownBilling() {
+    el_parent = document.getElementById("p-project-billing");
+    
+    for (key in billingList) {
+      el_parent.innerHTML = el_parent.innerHTML + '<option>'+ key +'</option>';
+    };
+};
+
+function createDropdownOrder() {
+  el_parent = document.getElementById("p-project-order");
+  
+  for (key in orderList) {
+    el_parent.innerHTML = el_parent.innerHTML + '<option>'+ key +'</option>';
+  };
 };
