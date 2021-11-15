@@ -19,9 +19,9 @@ quote = sys.argv[1]
 
 def main():
     quote_list = get_opportunity(quote)
-    # for i in quote_list:
-    #     print(i)
-    print(quote_list)
+    for i in quote_list:
+        print(i)
+    # print(quote_list)
 
 def get_opportunity(quote):
     '''fetch opportunity data from database'''

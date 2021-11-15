@@ -4,6 +4,7 @@ function getOpportunity(){
     var p_project_category = document.getElementById("p-project-category");
     var p_project_type = document.getElementById("p-project-type");
     var p_project_zip = document.getElementById("p-project-zip");
+    var p_customers_col = document.getElementById("p-customers-col");
     var p_customer = document.getElementById("p-customer");
 
     if (p_opportunity) {
@@ -24,25 +25,40 @@ function getOpportunity(){
         
     }
 
-    let pyshell = new PythonShell('get_opportunity.py', options);
-    // pyshell.on('message', function(message) {
-    // swal(message);
-    // })
-    pyshell.on('message', function(message) {
-        // if (dataType == "opportunity"){
-        // document.getElementById("next-opp-num").innerHTML = "Are you sure you want to create Opportunity " + message + "?"
-        // }
+    PythonShell.run('get_opportunity.py', options, function (err, results) {
+        if (err) throw err;
+        var quoteList = results;
 
         
-        var quoteList = message;
-        console.log(quoteList)
-        // console.log(oppNum);
-            })
 
-    pyshell.end(function (err,code,signal) {
-        if (err) throw err;
-        console.log('The exit code was: ' + code);
-        console.log('The exit signal was: ' + signal);
-        console.log('finished');
-        });
+        p_project_name.value = quoteList[2]
+        p_project_category.value = quoteList[3]
+        p_project_type.innerHTML = '<option>'+ quoteList[4]+'</option>'
+        p_project_zip.value = quoteList[6]
+        pValidateZip()
+        
+
+        // below is customer input field 
+        // make raw list from output
+        var customersRaw = quoteList[7].split(',')
+        var customers = []
+
+        for (var i = 0; i < customersRaw.length; i++) {
+            // refine string
+            customers.push(customersRaw[i].toString().replace(/[']+/g, '').replace(/[\[\]]/g, "").trim())
+        }
+       
+        if (customers.length > 1){
+            // if multiple customers exist make list
+            p_customer.value = ""
+            p_customers_col.setAttribute("style","display:inline;");
+            createDropdownCustomers(customers)
+        }
+        else {
+            // if only one customer exist move value to customer input
+            p_customers_col.setAttribute("style","display:none;");
+            p_customer.value = customers
+        }
+        
+    });
 }

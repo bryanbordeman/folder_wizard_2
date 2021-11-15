@@ -66,3 +66,11 @@ function createDropdownOrder() {
     el_parent.innerHTML = el_parent.innerHTML + '<option>'+ key +'</option>';
   };
 };
+
+function createDropdownCustomers(customers) {
+  el_parent = document.getElementById("p-project-customers");
+  el_parent.innerHTML = ""; 
+  for (item in customers) {
+    el_parent.innerHTML = el_parent.innerHTML + '<option>'+ customers[item] +'</option>';
+  };
+};

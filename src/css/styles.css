@@ -67,3 +67,11 @@
     box-shadow: inset 0px 0px 0px 30px #6f42c1;
   }
 }
+.custom-folder {
+  cursor: pointer;
+}
+.custom-folder:hover { 
+transform: scale(0.90); 
+color: #ea39b8
+
+}
