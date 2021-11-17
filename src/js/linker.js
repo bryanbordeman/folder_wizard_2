@@ -216,3 +216,90 @@ function get_next_number(dataType) {
         });
     }
 
+function get_project_input() {
+
+    var p_project = document.getElementById("p-project").checked
+    var p_service = document.getElementById("p-service").checked
+    var p_HSE = document.getElementById("p-HSE").checked
+    var p_opportunity = document.getElementById("p-opportunity").value
+    var p_project_name = document.getElementById("p-project-name").value
+    var p_project_category = document.getElementById("p-project-category").value
+    var p_project_type = document.getElementById("p-project-type").value
+    var p_project_zip = document.getElementById("p-project-zip").value
+    var p_project_terms = document.getElementById("p-project-terms").value
+    var p_customer = document.getElementById("p-customer").value
+    var p_project_billing = document.getElementById("p-project-billing").value
+    var p_project_order = document.getElementById("p-project-order").value
+    var p_tax = document.getElementById("p-tax").checked
+    var p_labor_U = document.getElementById("labor-U").checked
+    var p_labor_PR = document.getElementById("labor-PR").checked
+    var p_labor_CP = document.getElementById("labor-CP").checked
+    var p_labor_M = document.getElementById("labor-M").checked
+    var p_price = document.getElementById("p-price").value.substring(1)
+    
+    // check type of project being created
+    if (p_project) {
+        var p_directory = createDirectory().projectDirectory
+    }
+    if (p_service) {
+        var p_directory = createDirectory().serviceDirectory
+    }
+    if (p_HSE) {
+        var p_directory = createDirectory().HSEDirectory
+    }
+    
+    console.log(p_opportunity, 
+        p_project_name, 
+        p_project_category, 
+        p_project_type, 
+        p_project_zip, 
+        p_project_terms,
+        p_customer,
+        p_project_billing,
+        p_project_order,
+        p_tax,
+        p_labor_U,
+        p_labor_PR,
+        p_labor_CP,
+        p_labor_M,
+        p_price,
+        p_directory
+        )
+        
+    clear_project_input();
+
+    };
+
+function clear_project_input() {
+    var p_opportunity = document.getElementById("p-opportunity")
+    var p_project_name = document.getElementById("p-project-name")
+    var p_project_category = document.getElementById("p-project-category")
+    var p_project_type = document.getElementById("p-project-type")
+    var p_project_zip = document.getElementById("p-project-zip")
+    var p_project_terms = document.getElementById("p-project-terms")
+    var p_customer = document.getElementById("p-customer")
+    var p_project_billing = document.getElementById("p-project-billing")
+    var p_project_order = document.getElementById("p-project-order")
+    var p_tax = document.getElementById("p-tax")
+    var p_labor_U = document.getElementById("labor-U")
+    var p_labor_PR = document.getElementById("labor-PR")
+    var p_labor_CP = document.getElementById("labor-CP")
+    var p_labor_M = document.getElementById("labor-M")
+    var p_price = document.getElementById("p-price")
+
+    p_opportunity.value = ''
+    p_project_name.value = ''
+    p_project_category.value = '' 
+    p_project_type.value = ''
+    p_project_zip.value = '' 
+    p_project_terms.value = ''
+    p_customer.value = ''
+    p_project_billing.value = ''
+    p_project_order.value = ''
+    p_tax.checked = false
+    p_labor_U.checked = false
+    p_labor_PR.checked = false
+    p_labor_CP.checked = false
+    p_labor_M.checked = false
+    p_price.value = ''
+}

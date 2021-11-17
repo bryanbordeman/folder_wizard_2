@@ -373,10 +373,10 @@
                 </div>
               </div>
               <div class="col-3">
-                <button class="btn btn-outline-primary p-3" style="width: 100%;">Clear</button>
+                <button onclick="clear_project_input()" class="btn btn-outline-primary p-3" style="width: 100%;">Clear</button>
               </div>
               <div class="col-3">
-                <button onclick="getOpportunity()" class="btn btn-outline-light p-3" style="width: 100%;">Create Project</button>
+                <button onclick="get_project_input()" class="btn btn-outline-light p-3" style="width: 100%;">Create Project</button>
               </div>
             </div>
 
@@ -520,17 +520,21 @@
       createDropdownOrder() //load order type to dropdown menu
       countryPopover() // load country popover data
     </script>
-    
+    <script>
+      // update project customer field when selection changes
+      document.getElementById('p-project-customers').addEventListener('change', function() {
+        document.getElementById('p-customer').value = this.value;
+      });
+
+    </script>
 
     <script>
       projectOpportunity = document.getElementById('p-opportunity')
       pOpportunityValidaion = document.getElementById('p-opp-validation')
-      // opportunityFile = document.getElementById('opportunity-file').files[0];
+    
       
       var input = $("#opportunity-file").change(function(){
         if (this.files[0]){
-        // console.log(this.files[0].path.split('/').reverse()[1])
-        // console.log(this.files[0].name)
         if (this.files[0].path.split('/').reverse()[1][0] == "Q"){
           
         projectOpportunity.value = this.files[0].path.split('/').reverse()[1];

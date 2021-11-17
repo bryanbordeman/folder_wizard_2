@@ -47,7 +47,7 @@ function getOpportunity(){
             // refine string
             customers.push(customersRaw[i].toString().replace(/[']+/g, '').replace(/[\[\]]/g, "").trim())
         }
-       
+
         if (customers.length > 1){
             // if multiple customers exist make list
             p_customer.value = ""

@@ -73,4 +73,6 @@ function createDropdownCustomers(customers) {
   for (item in customers) {
     el_parent.innerHTML = el_parent.innerHTML + '<option>'+ customers[item] +'</option>';
   };
+  document.getElementById('p-customer').value = customers[0];
 };
+
