@@ -1,3 +1,5 @@
+const log = require('./src/json/logs.json'); // load json to list
+
 function get_opportunity_input() {
     // collects inputs and returns object
     var project_name = document.getElementById("project-name").value
@@ -37,7 +39,8 @@ function get_opportunity_input() {
         due_date: due_date, 
         customers: customers, 
         quote_number: quote_number, 
-        directory: directory
+        directory: directory,
+        log: log['quoteLog']
     };
     clear_opportunity_input()
     localStorage.setItem("opportunity-inputs", JSON.stringify(inputs));
@@ -107,6 +110,8 @@ function clear_project_input() {
     var p_project_category = document.getElementById("p-project-category")
     var p_project_type = document.getElementById("p-project-type")
     var p_project_zip = document.getElementById("p-project-zip")
+    var p_valid_zip = document.getElementById("p-valid-zip")
+    var p_invalid_zip = document.getElementById("p-invalid-zip")
     var p_project_terms = document.getElementById("p-project-terms")
     var p_customer = document.getElementById("p-customer")
     var p_project_billing = document.getElementById("p-project-billing")
@@ -118,21 +123,24 @@ function clear_project_input() {
     var p_labor_M = document.getElementById("labor-M")
     var p_price = document.getElementById("p-price")
 
-    p_opportunity.value = ''
-    p_project_name.value = ''
-    p_project_category.value = '' 
-    p_project_type.value = ''
-    p_project_zip.value = '' 
-    p_project_terms.value = ''
-    p_customer.value = ''
-    p_project_billing.value = ''
-    p_project_order.value = ''
-    p_tax.checked = false
-    p_labor_U.checked = false
-    p_labor_PR.checked = false
-    p_labor_CP.checked = false
-    p_labor_M.checked = false
-    p_price.value = ''
+    p_opportunity.value = '';
+    p_project_name.value = '';
+    p_project_category.value = '';
+    p_project_type.value = '';
+    p_project_type.innerHTML = '<option value="" selected disabled hidden>Select Category First</option>';
+    p_project_zip.value = '';
+    p_valid_zip.innerHTML = "";
+    p_invalid_zip.innerHTML = "";
+    p_project_terms.value = '';
+    p_customer.value = '';
+    p_project_billing.value = '';
+    p_project_order.value = '';
+    p_tax.checked = false;
+    p_labor_U.checked = false;
+    p_labor_PR.checked = false;
+    p_labor_CP.checked = false;
+    p_labor_M.checked = false;
+    p_price.value = '';
 
     // if dropdown for customer selection is active hide
     var p_customers_col = document.getElementById("p-customers-col");
@@ -146,15 +154,20 @@ function clear_opportunity_input(){
     var project_type = document.getElementById("project-type")
     var manager = document.getElementById("manager")
     var project_zip = document.getElementById("project-zip")
+    var valid_zip = document.getElementById("valid-zip")
+    var invalid_zip = document.getElementById("invalid-zip")
     var due_date = document.getElementById("due-date")
     var ul = document.getElementById("dynamic-list");
 
     // clean form after submit
-    document.getElementById("project-name").value = "";
-    document.getElementById("project-category").value = "";
-    document.getElementById("project-type").value = "";
-    document.getElementById("manager").value = "";
-    document.getElementById("project-zip").value = "";
+    project_name.value = "";
+    project_category.value = "";
+    project_type.value = "";
+    project_type.innerHTML = '<option value="" selected disabled hidden>Select Category First</option>';
+    manager.value = "";
+    project_zip.value = "";
+    valid_zip.innerHTML = "";
+    invalid_zip.innerHTML = "";
     getDate(); // set due-date to today
     ul.replaceChildren(); // clean list of customers
 }    

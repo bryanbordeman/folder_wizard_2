@@ -9,12 +9,6 @@ import time
 import datetime
 import json
 
-# FILE = '../src/json/logs.json'
-# file = open(FILE,)
-# data = json.load(file)
-# quoteLog = data['quoteLog']
-# file.close()
-
 def main():
     # create_log()
     inputs = sys.argv[1] # input string
@@ -27,7 +21,7 @@ def main():
 
 def create_log(inputs):
         '''update quote log'''
-        log = r"/Users/bryanbordeman/Desktop/folder_wizard_2.0/test/RFQ's/Master Quote Log.xlsx"
+        log = inputs['log']
         book = load_workbook(log)
         ws = book.worksheets[0]
         for cell in ws["A"]:
