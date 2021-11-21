@@ -23,19 +23,19 @@ function createDropdownProject() {
 };
 
 function pCreateDropdownProject() {
-  el_parent = document.getElementById("p-project-category");
-  el_child = document.getElementById("p-project-type");
+  p_el_parent = document.getElementById("p-project-category");
+  p_el_child = document.getElementById("p-project-type");
   
   for (key in mList) {
-    el_parent.innerHTML = el_parent.innerHTML + '<option>'+ key +'</option>';
+    p_el_parent.innerHTML = p_el_parent.innerHTML + '<option>'+ key +'</option>';
   }
   
-  el_parent.addEventListener('change', function populate_child(e){
-    el_child.innerHTML = '';
+  p_el_parent.addEventListener('change', function populate_child(e){
+    p_el_child.innerHTML = '';
     itm = e.target.value;
     if(itm in mList){
         for (i = 0; i < mList[itm].length; i++) {
-          el_child.innerHTML = el_child.innerHTML + '<option>'+ mList[itm][i][0] +'</option>';
+          p_el_child.innerHTML = p_el_child.innerHTML + '<option>'+ mList[itm][i][0] +'</option>';
         }
     }
   });

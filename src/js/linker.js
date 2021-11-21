@@ -248,23 +248,23 @@ function get_project_input() {
         var p_directory = createDirectory().HSEDirectory
     }
     
-    console.log(p_opportunity, 
-        p_project_name, 
-        p_project_category, 
-        p_project_type, 
-        p_project_zip, 
-        p_project_terms,
-        p_customer,
-        p_project_billing,
-        p_project_order,
-        p_tax,
-        p_labor_U,
-        p_labor_PR,
-        p_labor_CP,
-        p_labor_M,
-        p_price,
-        p_directory
-        )
+    // console.log(p_opportunity, 
+    //     p_project_name, 
+    //     p_project_category, 
+    //     p_project_type, 
+    //     p_project_zip, 
+    //     p_project_terms,
+    //     p_customer,
+    //     p_project_billing,
+    //     p_project_order,
+    //     p_tax,
+    //     p_labor_U,
+    //     p_labor_PR,
+    //     p_labor_CP,
+    //     p_labor_M,
+    //     p_price,
+    //     p_directory
+    //     )
         
     clear_project_input();
 
@@ -302,4 +302,9 @@ function clear_project_input() {
     p_labor_CP.checked = false
     p_labor_M.checked = false
     p_price.value = ''
+
+    // if dropdown for customer selection is active hide
+    var p_customers_col = document.getElementById("p-customers-col");
+    p_customers_col.setAttribute("style","display:none;");
+    
 }
