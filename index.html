@@ -17,6 +17,7 @@
     <script type='text/javascript' src='./src/js/createDirectory.js'></script>
     <script type='text/javascript' src='./src/js/currency.js'></script>
     <script type='text/javascript' src='./src/js/getOpportunity.js'></script>
+    <script type='text/javascript' src='./src/js/getInputs.js'></script>
 
     <style>
         
@@ -135,8 +136,11 @@
               <ul class="list-group" id="dynamic-list"></ul>
               <hr class="mt-0" style="background-color: white; height: 1px; border: 0;">
               <div class="row mt-3">
-                <div class="col">
-                  <button onclick="openConfirmtionModal()" class="btn btn-outline-light p-3">Create Opportunity</button>
+                <div class="col-3">
+                  <button onclick="clear_opportunity_input()" class="btn btn-outline-primary p-3" style="width: 100%;">Clear</button>
+                </div>
+                <div class="col-6">
+                  <button onclick="createLog()" class="btn btn-outline-light p-3">Create Opportunity</button>
                 </div>
               </div>
             </div>
@@ -523,7 +527,7 @@
     <script>
       // update project customer field when selection changes
       document.getElementById('p-project-customers').addEventListener('change', function() {
-        document.getElementById('p-customer').value = this.value;
+      document.getElementById('p-customer').value = this.value;
       });
 
     </script>

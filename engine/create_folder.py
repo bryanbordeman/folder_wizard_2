@@ -8,6 +8,7 @@ BASE_DIR = "/Users/bryanbordeman/Desktop/folder_wizard_2.0/test"
 current_year = time.strftime("%Y")
 
 def main():
+    # quote = 'Q21-314 Testing Create Folder MRI_SEM'
     # create_opportunity_folder(quote)
     open_folder(BASE_DIR)
 
@@ -51,6 +52,10 @@ def create_opportunity_folder(quote):
     createFolder(f'{opportunity_dir}/{current_year} Quotes/{quote}/02_rfi_addenda')
     createFolder(f'{opportunity_dir}/{current_year} Quotes/{quote}/03_photos')
     createFolder(f'{opportunity_dir}/{current_year} Quotes/{quote}/04_misc_docs')
+
+    # open_folder(f'{opportunity_dir}/{current_year} Quotes/{quote}')
+    directory = f'{opportunity_dir}/{current_year} Quotes/{quote}'
+    return directory
 
 def create_project_folder():
     pass
