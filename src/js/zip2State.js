@@ -38,6 +38,7 @@ function pValidateZip(){
         if (zipCodeList[i][2] <= zip_var && zipCodeList[i][3] >= zip_var) {
             zipInput.setAttribute('class',"form-control is-valid");
             validZip.innerHTML = zipCodeList[i][0] + ", " + zipCodeList[i][1];
+            localStorage.setItem("project-state", zipCodeList[i][1]);
             break;
         } else {
             zipInput.setAttribute('class',"form-control is-invalid");

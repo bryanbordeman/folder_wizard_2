@@ -2,17 +2,16 @@ let {PythonShell} = require('python-shell')
 var path = require("path")
 
 
-function createLog(){
-    get_opportunity_input()
+function createOppLog(){
+    getOpportunityInput()
     var args = localStorage.getItem("opportunity-inputs"); //get local var
-    // var argsObjects = JSON.parse(args)
-    // console.log(argsObjects.project_type)
+    
     var options = {
         scriptPath : path.join(__dirname, './engine/'),
         args :args,
         env: process.env,
     }
-    let pyshell = new PythonShell('create_log.py', options);
+    let pyshell = new PythonShell('create_opp_log.py', options);
   
     pyshell.on('message', function(message) {
         console.log(message);
@@ -32,6 +31,31 @@ function createLog(){
             failFolder.setAttribute("style","display:inline;");
             successRecord.setAttribute("style","display:none;");
             failRecord.setAttribute("style","display:inline;");
+            console.log('The exit code was: ' + code);
+            console.log('The exit signal was: ' + signal);
+            console.log('finished');
+        }
+        });
+    
+}
+
+function createProjectLog(){
+    getProjectInput()
+    var args = localStorage.getItem("project-inputs"); //get local var
+    
+    var options = {
+        scriptPath : path.join(__dirname, './engine/'),
+        args :args,
+        env: process.env,
+    }
+    let pyshell = new PythonShell('create_project_log.py', options);
+  
+    pyshell.on('message', function(message) {
+        console.log(message);
+        })
+
+    pyshell.end(function (err,code,signal) {
+        if (err) {
             console.log('The exit code was: ' + code);
             console.log('The exit signal was: ' + signal);
             console.log('finished');

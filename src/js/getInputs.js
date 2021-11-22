@@ -1,6 +1,7 @@
-const log = require('./src/json/logs.json'); // load json to list
+// load json to list
+const log = require('./src/json/logs.json'); 
 
-function get_opportunity_input() {
+function getOpportunityInput() {
     // collects inputs and returns object
     var project_name = document.getElementById("project-name").value
     var project_category = document.getElementById("project-category").value
@@ -49,7 +50,7 @@ function get_opportunity_input() {
     }
 
 
-function get_project_input() {
+function getProjectInput() {
 
     var p_project = document.getElementById("p-project").checked
     var p_service = document.getElementById("p-service").checked
@@ -80,26 +81,50 @@ function get_project_input() {
     if (p_HSE) {
         var p_directory = createDirectory().HSEDirectory
     }
-    var inputs = {p_project_name: p_project_name, 
+
+    // create labor input from var's 
+    labor = ''
+    laborList = []
+
+    // add items to list
+    if (p_labor_CP) {
+        laborList.push('CP')
+    }
+    if (p_labor_M) {
+        laborList.push('M')
+    }
+    if (p_labor_PR) {
+        laborList.push('PR')
+    }
+    if (p_labor_U) {
+        laborList.push('U')
+    }
+
+    // create string from list items
+    for(let i = 0; i < laborList.length; i++){ 
+        labor += laborList[i] + ',';
+        }
+    labor = labor.replace(/,(\s+)?$/, ''); // remove comma at end
+
+    var inputs = {p_project_number: '12345',
+        p_project_name: p_project_name, 
         p_project_category: p_project_category,
         p_project_type: p_project_type,
         p_project_zip: p_project_zip,
+        p_project_state: localStorage.getItem("project-state"),
         p_project_terms: p_project_terms,
         p_customer: p_customer,
-        p_project_billing: p_project_billing,
+        p_project_billing: billingList[p_project_billing],
         p_project_order: p_project_order,
         p_tax: p_tax,
-        p_labor_U: p_labor_U, 
-        p_labor_PR: p_labor_PR,
-        p_labor_CP: p_labor_CP,
-        p_labor_M: p_labor_M,
+        p_labor: labor, 
         p_price: p_price,
         p_directory: p_directory,
+        log: log['projectLog']
     };
 
     clear_project_input();
-    localStorage.setItem("project-inputs", inputs);
-    console.log(inputs)
+    localStorage.setItem("project-inputs", JSON.stringify(inputs));
     return inputs
 
     };
