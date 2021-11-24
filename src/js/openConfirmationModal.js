@@ -1,6 +1,7 @@
 const $ = jQuery = require('jquery');
 
-function openConfirmtionModal(){
+function openOppConfirmtionModal(){
+    // check all input fields are correct and fetch next opportunity number
     var project_name = document.getElementById("project-name");
     var project_category = document.getElementById("project-category");
     var project_type = document.getElementById("project-type");
@@ -36,7 +37,19 @@ function openConfirmtionModal(){
 
     // if all inputs are valid show modal
     if (result == true) {
-        $("#varificationModal").modal('show');
-        get_next_number("opportunity");
+        $("#oppVerificationModal").modal('show');
+        getNextNumber("opportunity");
+    }
+}
+
+
+function openProjectConfirmtionModal(){
+    // check all input fields are correct and fetch next opportunity number
+    let result = true;
+    
+    // if all inputs are valid show modal
+    if (result == true) {
+        $("#projectVerificationModal").modal('show');
+        getNextNumber("project");
     }
 }

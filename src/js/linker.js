@@ -3,6 +3,7 @@ var path = require("path")
 
 
 function createOppLog(){
+    // creates excel log of opportunity
     getOpportunityInput()
     var args = localStorage.getItem("opportunity-inputs"); //get local var
     
@@ -40,6 +41,7 @@ function createOppLog(){
 }
 
 function createProjectLog(){
+    // creates excel log of project
     getProjectInput()
     var args = localStorage.getItem("project-inputs"); //get local var
     
@@ -147,12 +149,8 @@ function createFolder(){
 
 
 
-function get_next_number(dataType) {
-    
-    // let {PythonShell} = require('python-shell')
-    // var path = require("path")
-    // var next_opp_num = document.getElementById("next-opp-num").value
-    
+function getNextNumber(dataType) {
+    // fetches next number from database
     var options = {
         scriptPath : path.join(__dirname, './engine/'),
         mode: 'text',
@@ -160,22 +158,20 @@ function get_next_number(dataType) {
         args : [dataType],
         pythonOptions: ['-u'],
         env: process.env,
-
-        
     }
 
     let pyshell = new PythonShell('get_next_num.py', options);
-    // pyshell.on('message', function(message) {
-    // swal(message);
-    // })
+   
     pyshell.on('message', function(message) {
-        localStorage.setItem("quote_number", message); //create local var
         if (dataType == "opportunity"){
-        document.getElementById("next-opp-num").innerHTML = "Are you sure you want to create Opportunity " + message + "?"
+            localStorage.setItem("quote_number", message); //create local var
+            document.getElementById("next-opp-num").innerHTML = "Are you sure you want to create Opportunity " + message + "?"
         }
-        // console.log(message);
-        // console.log(oppNum);
-            })
+        if (dataType == "project"){
+            localStorage.setItem("p_project_number", message); //create local var
+            document.getElementById("next-project-num").innerHTML = "Are you sure you want to create Project " + message + "?"
+            }
+            });
 
     pyshell.end(function (err,code,signal) {
         if (err) throw err;

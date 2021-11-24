@@ -14,7 +14,7 @@ function validateZip(){
         if (zipCodeList[i][2] <= zip_var && zipCodeList[i][3] >= zip_var) {
             zipInput.setAttribute('class',"form-control is-valid");
             validZip.innerHTML = zipCodeList[i][0] + ", " + zipCodeList[i][1];
-            localStorage.setItem("project-location", validZip.innerHTML);
+            localStorage.setItem("project-location", validZip.innerHTML); // stores city and state code for excel log
             break;
         } else {
             zipInput.setAttribute('class',"form-control is-invalid");
@@ -38,7 +38,7 @@ function pValidateZip(){
         if (zipCodeList[i][2] <= zip_var && zipCodeList[i][3] >= zip_var) {
             zipInput.setAttribute('class',"form-control is-valid");
             validZip.innerHTML = zipCodeList[i][0] + ", " + zipCodeList[i][1];
-            localStorage.setItem("project-state", zipCodeList[i][1]);
+            localStorage.setItem("project-state", zipCodeList[i][1]);// stores state code for excel log
             break;
         } else {
             zipInput.setAttribute('class',"form-control is-invalid");

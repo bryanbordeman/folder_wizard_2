@@ -1,8 +1,8 @@
 // load json to list
-const log = require('./src/json/logs.json'); 
+const log = require('./src/json/logs.json'); // location of logs
 
 function getOpportunityInput() {
-    // collects inputs and returns object
+    // collect input data from form and store in object called inputs
     var project_name = document.getElementById("project-name").value
     var project_category = document.getElementById("project-category").value
     var project_type = document.getElementById("project-type").value
@@ -51,7 +51,7 @@ function getOpportunityInput() {
 
 
 function getProjectInput() {
-
+    // collect input data from form and store in object called inputs
     var p_project = document.getElementById("p-project").checked
     var p_service = document.getElementById("p-service").checked
     var p_HSE = document.getElementById("p-HSE").checked
@@ -70,16 +70,21 @@ function getProjectInput() {
     var p_labor_CP = document.getElementById("labor-CP").checked
     var p_labor_M = document.getElementById("labor-M").checked
     var p_price = document.getElementById("p-price").value.substring(1)
+
+    var p_sort = ''
     
     // check type of project being created
     if (p_project) {
         var p_directory = createDirectory().projectDirectory
+        p_sort = "project"
     }
     if (p_service) {
         var p_directory = createDirectory().serviceDirectory
+        p_sort = "service"
     }
     if (p_HSE) {
         var p_directory = createDirectory().HSEDirectory
+        p_sort = "HSE"
     }
 
     // create labor input from var's 
@@ -106,7 +111,10 @@ function getProjectInput() {
         }
     labor = labor.replace(/,(\s+)?$/, ''); // remove comma at end
 
-    var inputs = {p_project_number: '12345',
+    var p_project_number = localStorage.getItem("p_project_number"); //get local var
+
+    var inputs = {p_sort: p_sort,
+        p_project_number: p_project_number,
         p_project_name: p_project_name, 
         p_project_category: p_project_category,
         p_project_type: p_project_type,
@@ -116,7 +124,7 @@ function getProjectInput() {
         p_customer: p_customer,
         p_project_billing: billingList[p_project_billing],
         p_project_order: p_project_order,
-        p_tax: p_tax,
+        p_tax: p_tax.toString(),
         p_labor: labor, 
         p_price: p_price,
         p_directory: p_directory,
@@ -125,11 +133,14 @@ function getProjectInput() {
 
     clear_project_input();
     localStorage.setItem("project-inputs", JSON.stringify(inputs));
+    console.log(inputs)
     return inputs
+    
 
     };
 
 function clear_project_input() {
+    // clear form data
     var p_opportunity = document.getElementById("p-opportunity")
     var p_project_name = document.getElementById("p-project-name")
     var p_project_category = document.getElementById("p-project-category")
@@ -174,6 +185,7 @@ function clear_project_input() {
 }
 
 function clear_opportunity_input(){
+    // clear form data
     var project_name = document.getElementById("project-name")
     var project_category = document.getElementById("project-category")
     var project_type = document.getElementById("project-type")
@@ -181,7 +193,6 @@ function clear_opportunity_input(){
     var project_zip = document.getElementById("project-zip")
     var valid_zip = document.getElementById("valid-zip")
     var invalid_zip = document.getElementById("invalid-zip")
-    var due_date = document.getElementById("due-date")
     var ul = document.getElementById("dynamic-list");
 
     // clean form after submit

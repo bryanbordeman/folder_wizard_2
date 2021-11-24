@@ -1,4 +1,5 @@
 function getOpportunity(){
+    // get opportunity from database and populate form.
     var p_opportunity = document.getElementById("p-opportunity")
     var p_project_name = document.getElementById("p-project-name");
     var p_project_category = document.getElementById("p-project-category");

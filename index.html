@@ -140,7 +140,7 @@
                   <button onclick="clear_opportunity_input()" class="btn btn-outline-primary p-3" style="width: 100%;">Clear</button>
                 </div>
                 <div class="col-6">
-                  <button onclick="createOppLog()" class="btn btn-outline-light p-3">Create Opportunity</button>
+                  <button onclick="openOppConfirmtionModal()" class="btn btn-outline-light p-3">Create Opportunity</button>
                 </div>
               </div>
             </div>
@@ -380,7 +380,7 @@
                 <button onclick="clear_project_input()" class="btn btn-outline-primary p-3" style="width: 100%;">Clear</button>
               </div>
               <div class="col-3">
-                <button onclick="createProjectLog()" class="btn btn-outline-light p-3" style="width: 100%;">Create Project</button>
+                <button onclick="openProjectConfirmtionModal()" class="btn btn-outline-light p-3" style="width: 100%;">Create Project</button>
               </div>
             </div>
 
@@ -388,6 +388,9 @@
         </div>
       </div>
     </div>
+
+    <!-- <button type="button" id="close-btn" class="btn btn-secondary" data-bs-dismiss="modal" onclick="window.close()">Close Program</button> -->
+
 
     <div class="container">
       
@@ -398,7 +401,7 @@
 
 
 
-    <div class="modal fade" id="varificationModal" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+    <div class="modal fade" id="oppVerificationModal" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content bg-white text-dark">
           <div class="modal-header">
@@ -406,16 +409,37 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div id="next-opp-num" class="modal-body">
-            Are you sure you want to create Opportunity Q21-305?
+            Are you sure you want to create Opportunity Q##-###?
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-            <button class="btn btn-primary" data-bs-target="#confirmationModal" data-bs-toggle="modal" data-bs-dismiss="modal" onclick="get_opp_input()">Create</button>
+            <button class="btn btn-primary" data-bs-target="#oppConfirmationModal" data-bs-toggle="modal" data-bs-dismiss="modal" onclick="createOppLog()">Create</button>
           </div>
         </div>
       </div>
     </div>
-    <div class="modal fade" id="confirmationModal" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+
+    <div class="modal fade" id="projectVerificationModal" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-white text-dark">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalToggleLabel">Confirm</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div id="next-project-num" class="modal-body">
+            Are you sure you want to create Project #####?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button class="btn btn-primary" onclick="createProjectLog()">Create</button>
+            <!-- <button class="btn btn-primary" data-bs-target="#projectConfirmationModal" data-bs-toggle="modal" data-bs-dismiss="modal" onclick="get_opp_input()">Create</button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="modal fade" id="oppConfirmationModal" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content bg-white text-dark">
           <div class="modal-header">
@@ -497,7 +521,7 @@
           </div>
           <div class="modal-footer">
             <button class="btn btn-primary" data-bs-dismiss="modal">Create Another folder</button>
-            <button type="button" id="closeApp" class="btn btn-secondary" data-bs-dismiss="modal">Close Program</button>
+            <button type="button" id="close-btn" class="btn btn-secondary" data-bs-dismiss="modal">Close Program</button>
           </div>
         </div>
       </div>
@@ -514,6 +538,10 @@
         </div>
       </div>
     </div>
+
+    <script>
+      
+    </script>
 
 
     <script language="javascript" type="text/javascript">  
@@ -578,6 +606,8 @@
       });
   
     </script>
+
+   
 
     <!-- You can also require other files to run in this process -->
     <script src="./renderer.js"></script>
