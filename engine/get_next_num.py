@@ -21,13 +21,6 @@ database = os.path.join(BASE_DIR, "protaskinate.db")
 def main():
     data_type = sys.argv[1]
     print(get_next_num(data_type))
-    # print(get_next_num('project'))
-    # print(get_next_num('opportunity'))
-    # print(get_next_num('service'))
-    # add_to_table()
-    # pass
-
-    # sys.stdout.write(get_next_num(data_type))
 
 
 def get_next_num(data_type):

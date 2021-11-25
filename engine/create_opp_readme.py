@@ -2,7 +2,7 @@ import os
 
 opportunity_dir = './Dektop'
 
-print('Readme Created')
+print('Opportunity Readme Created')
 
 # def make_readme(quote):
 #     name_of_file = 'README'

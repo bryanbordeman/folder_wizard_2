@@ -10,7 +10,8 @@ current_year = time.strftime("%Y")
 def main():
     # quote = 'Q21-314 Testing Create Folder MRI_SEM'
     # create_opportunity_folder(quote)
-    open_folder(BASE_DIR)
+    # open_folder(BASE_DIR)
+    print('Opportunity Folder Created')
 
 def createFolder(directory):
     try:

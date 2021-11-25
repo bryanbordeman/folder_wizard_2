@@ -1,0 +1,1 @@
+print('Opportunity Record Created')

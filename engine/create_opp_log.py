@@ -6,6 +6,7 @@ def main():
     inputs = sys.argv[1] # input string
     inputDict = eval('dict('+inputs+')') # convert input string into dict
     create_opp_log(inputDict)
+    print('Opportunity Log Created')
 
 def create_opp_log(inputs):
         '''update quote log'''
