@@ -63,9 +63,11 @@ function eraseOppLog(){
 
 function createOppRecord(){
 
+    var args = localStorage.getItem("opportunity-inputs"); //get local var
+
     var options = {
         scriptPath : path.join(__dirname, './engine/'),
-        args : [],
+        args : args,
         env: process.env,
     }
     let pyshell = new PythonShell('create_opp_record.py', options);
@@ -91,14 +93,36 @@ function createOppRecord(){
 }
 
 function eraseOppRecord(){
-    console.log('Opportunity Record Erased')
+    // erase last record of entry
+    var args = localStorage.getItem("opportunity-inputs"); //get local var
+
+    var options = {
+        scriptPath : path.join(__dirname, './engine/'),
+        args :args,
+        env: process.env,
+    }
+    let pyshell = new PythonShell('erase_opp_record.py', options);
+
+    pyshell.on('message', function(message) {
+        console.log(message);
+        })
+
+    pyshell.end(function (err,code,signal) {
+        if (err) {
+            console.log('The exit code was: ' + code);
+            console.log('The exit signal was: ' + signal);
+            console.log('finished');
+        }
+        });
 }
 
 function createOppFolder(){
 
+    var args = localStorage.getItem("opportunity-inputs"); //get local var
+
     var options = {
         scriptPath : path.join(__dirname, './engine/'),
-        args : [],
+        args : args,
         env: process.env,
     }
     let pyshell = new PythonShell('create_opp_folder.py', options);
@@ -108,6 +132,7 @@ function createOppFolder(){
             failFolder.setAttribute("style","display:none;");
             successFolder.setAttribute("style","display:inline;");
             createOppReadme()
+            localStorage.setItem("directory", '/Users/bryanbordeman/Desktop/folder_wizard_2.0/test');
             })
 
     pyshell.end(function (err) {
@@ -127,9 +152,12 @@ function eraseOppFolder(){
 }
 
 function createOppReadme(){
+
+    var args = localStorage.getItem("opportunity-inputs"); //get local var
+
     var options = {
         scriptPath : path.join(__dirname, './engine/'),
-        args : [],
+        args : args,
         env: process.env,
     }
     let pyshell = new PythonShell('create_opp_readme.py', options);
@@ -215,4 +243,28 @@ function getNextNumber(dataType) {
         });
     }
 
+
+function openFolder(){
+    // erase last record of entry
+    // var args = {directory: localStorage.getItem("directory")}; //get local var
+
+    var options = {
+        scriptPath : path.join(__dirname, './engine/'),
+        args :[],
+        env: process.env,
+    }
+    let pyshell = new PythonShell('open_folder.py', options);
+
+    pyshell.on('message', function(message) {
+        console.log(message);
+        })
+
+    pyshell.end(function (err,code,signal) {
+        if (err) {
+            console.log('The exit code was: ' + code);
+            console.log('The exit signal was: ' + signal);
+            console.log('finished');
+        }
+        });
+}
 
