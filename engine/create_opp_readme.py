@@ -1,18 +1,24 @@
 import os
+import sys
 
-opportunity_dir = './Dektop'
+def main():
+    # inputs = sys.argv[1] # input string
+    # make_readme(inputs)
+    print('Opportunity Readme Created')
 
-print('Opportunity Readme Created')
+def make_readme(quote):
+    pass
+    # name_of_file = 'README'
+    # path = f'{opportunity_dir}/{current_year} Quotes/{quote}'
+    # completeName = os.path.join(path, name_of_file + ".txt")
 
-# def make_readme(quote):
-#     name_of_file = 'README'
-#     path = f'{opportunity_dir}/{current_year} Quotes/{quote}'
-#     completeName = os.path.join(path, name_of_file + ".txt")
+    # readme = open(completeName, "w")
 
-#     readme = open(completeName, "w")
+    # opportunity_info = f'Quote Number = {quote_number}\nProject Name = {project_name}\nProject Category = {project_category}\nProject Type = {project_type}\nProject Zip = {project_zip}\nBid Due Date = {bid_due}\nCustomer List = {customer_list}'
 
-#     opportunity_info = f'Quote Number = {quote_number}\nProject Name = {project_name}\nProject Category = {project_category}\nProject Type = {project_type}\nProject Zip = {project_zip}\nBid Due Date = {bid_due}\nCustomer List = {customer_list}'
+    # # f'Project Number = {self.project_number}\nProject Name = {self.project_name}\nProject Category = {self.project_category}\nProject Type = {self.project_type}\nProject Zip = {self.project_zip}\nCustomer = {self.customer}\nQuote Number = {self.quote}\nTerms = {self.terms}\nTax Exempt = {self.tax}\nBilling Type = {self.billing}\nSell Price (USD) = ${self.price}\n'
+    # readme.write(opportunity_info)
+    # readme.close()
 
-#     # f'Project Number = {self.project_number}\nProject Name = {self.project_name}\nProject Category = {self.project_category}\nProject Type = {self.project_type}\nProject Zip = {self.project_zip}\nCustomer = {self.customer}\nQuote Number = {self.quote}\nTerms = {self.terms}\nTax Exempt = {self.tax}\nBilling Type = {self.billing}\nSell Price (USD) = ${self.price}\n'
-#     readme.write(opportunity_info)
-#     readme.close()
+if __name__ == "__main__":
+    main()
