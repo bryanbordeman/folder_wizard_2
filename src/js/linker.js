@@ -128,10 +128,11 @@ function createOppFolder(){
     let pyshell = new PythonShell('create_opp_folder.py', options);
   
     pyshell.on('message', function(message) {
-            console.log(message);
+            // console.log(message);
+            console.log('Opportunity Folder Created')
             failFolder.setAttribute("style","display:none;");
             successFolder.setAttribute("style","display:inline;");
-            createOppReadme()
+            createOppReadme(message)
             localStorage.setItem("directory", message);
             })
 
@@ -171,13 +172,13 @@ function eraseOppFolder(){
         });
 }
 
-function createOppReadme(){
+function createOppReadme(currentPath){
 
     var args = localStorage.getItem("opportunity-inputs"); //get local var
-
+    
     var options = {
         scriptPath : path.join(__dirname, './engine/'),
-        args : args,
+        args : [args, currentPath],
         env: process.env,
     }
     let pyshell = new PythonShell('create_opp_readme.py', options);
