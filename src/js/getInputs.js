@@ -70,6 +70,14 @@ function getProjectInput() {
     var p_labor_CP = document.getElementById("labor-CP").checked
     var p_labor_M = document.getElementById("labor-M").checked
     var p_price = document.getElementById("p-price").value.substring(1)
+    
+    var type_code = ''
+    // find type code
+    for (i = 0; i <= mList[p_project_category].length - 1; i++) {
+        if (mList[p_project_category][i][0] == p_project_type) {
+            type_code = mList[p_project_category][i][1];
+        }
+    }
 
     var p_sort = ''
     
@@ -118,10 +126,12 @@ function getProjectInput() {
         p_project_name: p_project_name, 
         p_project_category: p_project_category,
         p_project_type: p_project_type,
+        p_type_code: type_code,
         p_project_zip: p_project_zip,
         p_project_state: localStorage.getItem("project-state"),
         p_project_terms: p_project_terms,
         p_customer: p_customer,
+        p_opportunity: p_opportunity,
         p_project_billing: billingList[p_project_billing],
         p_project_order: p_project_order,
         p_tax: p_tax.toString(),

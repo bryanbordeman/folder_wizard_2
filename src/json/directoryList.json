@@ -1,6 +1,6 @@
 {
-    "project_dir": "T:/Global",
-    "service_dir": "T:/Global/Door Service",
+    "project_dir": "/Users/bryanbordeman/Desktop/folder_wizard_2.0/test/Global",
+    "service_dir": "/Users/bryanbordeman/Desktop/folder_wizard_2.0/test/Global/Door Service",
     "opportunity_dir": "/Users/bryanbordeman/Desktop/folder_wizard_2.0/test/RFQ's",
     "HSE_dir": "T:/HSE"
 }

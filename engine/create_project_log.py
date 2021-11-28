@@ -7,13 +7,19 @@ def main():
     inputs = sys.argv[1] # input string
     inputDict = eval('dict('+inputs+')') # convert input string into dict
     create_project_log(inputDict)
-    print(inputDict)
+    print(f"{inputDict['p_sort']} Log Created")
 
 def create_project_log(inputs):
-    '''update quote log'''
+    '''update project log'''
     log = inputs['log']
     book = load_workbook(log)
-    ws = book.worksheets[0]
+
+    if inputs['p_sort'] == 'project':
+        ws = book.worksheets[0]
+    elif inputs['p_sort'] == 'service':
+        ws = book.worksheets[1]
+    elif inputs['p_sort'] == 'HSE':
+        ws = book.worksheets[2]
     
     # get fist empty cell
     for cell in ws["B"]:
@@ -27,7 +33,7 @@ def create_project_log(inputs):
     ws[f'A{current_row}'] = f"{inputs['p_project_number']}{inputs['p_project_billing']}"
     ws[f'B{current_row}'] = f"{inputs['p_project_state']}"
     ws[f'C{current_row}'] = f"{inputs['p_project_order']}"
-    ws[f'D{current_row}'] = f"{inputs['p_project_name']} {inputs['p_project_type']}"
+    ws[f'D{current_row}'] = f"{inputs['p_project_name']} {inputs['p_type_code']}"
     ws[f'E{current_row}'] = f"{inputs['p_labor']}"
     ws[f'F{current_row}'] = time.strftime("%D")
     ws[f'G{current_row}'] = inputs['p_project_type']

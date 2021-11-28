@@ -1,16 +1,13 @@
 import sys
 import os
 import os.path
-
 from database import execute_db_query
-
 
 def main():
     inputs = sys.argv[1] # input string
     inputDict = eval('dict('+inputs+')') # convert input string into dict
     create_opp_record(inputDict)
     print('Opportunity Record Created')
-
 
 def create_opp_record(inputs):
         '''write opportunity to database'''
