@@ -4,7 +4,9 @@
   "description": "Automates log, record, and folder creation.",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=public/icons/icon_mac.png --prune=true --out=release-builds",
+    "package-win": "electron-packager . electron-tutorial-app --overwrite --asar=true --platform=win32 --arch=ia32 --icon=public/icons/icon_win.png --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Folder Wizard\""
   },
   "repository": "https://github.com/bryanbordeman/folder_wizard_2",
   "keywords": [
@@ -24,13 +26,5 @@
     "bootstrap-icons": "^1.5.0",
     "jquery": "^3.6.0",
     "python-shell": "^3.0.1"
-  },
-  "build": {
-    "mac": {
-    "icon": "./public/icons/icon_mac.png"
-    },
-    "win": {
-    "icon": "./public/icons/icon_mac.png"
-    }
-    }
+  }
 }

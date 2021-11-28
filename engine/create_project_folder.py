@@ -3,7 +3,6 @@ import sys
 import time
 import os.path
 
-BASE_DIR = "/Users/bryanbordeman/Desktop/folder_wizard_2.0/test"
 current_year = time.strftime("%Y")
 
 def main():
