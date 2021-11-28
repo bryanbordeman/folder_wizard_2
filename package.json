@@ -6,7 +6,7 @@
   "scripts": {
     "start": "electron .",
     "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=public/icons/icon_mac.png --prune=true --out=release-builds",
-    "package-win": "electron-packager . electron-tutorial-app --overwrite --asar=true --platform=win32 --arch=ia32 --icon=public/icons/icon_win.png --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Folder Wizard\""
+    "package-win": "electron-packager . folder-wizard --overwrite --platform=win32 --arch=ia32 --icon=public/icons/icon_win.png --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Folder Wizard\""
   },
   "repository": "https://github.com/bryanbordeman/folder_wizard_2",
   "keywords": [
