@@ -332,7 +332,7 @@ function createProjectFolder(){
             console.log('Project Folder Created')
             failFolder.setAttribute("style","display:none;");
             successFolder.setAttribute("style","display:inline;");
-            // createProjectReadme(message)
+            createProjectReadme(message);
             localStorage.setItem("directory", message);
             })
 
@@ -347,6 +347,34 @@ function createProjectFolder(){
         }
         });
 }
+
+function createProjectReadme(currentPath){
+
+    var args = localStorage.getItem("project-inputs"); //get local var
+    
+    var options = {
+        scriptPath : path.join(__dirname, './engine/'),
+        args : [args, currentPath],
+        env: process.env,
+    }
+    let pyshell = new PythonShell('create_project_readme.py', options);
+
+    pyshell.on('message', function(message) {
+            console.log(message);
+            failReadme.setAttribute("style","display:none;");
+            successReadme.setAttribute("style","display:inline;");
+            })
+
+    pyshell.end(function (err) {
+        if (err) {
+            eraseProjectLog();
+            eraseProjectRecord();
+            eraseOppFolder();
+            successReadme.setAttribute("style","display:none;");
+            failReadme.setAttribute("style","display:inline;");
+        }
+    });
+};
 
 // project and opportunity functions below
 function getNextNumber(dataType) {

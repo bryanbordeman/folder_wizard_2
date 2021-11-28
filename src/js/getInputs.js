@@ -143,7 +143,7 @@ function getProjectInput() {
 
     clear_project_input();
     localStorage.setItem("project-inputs", JSON.stringify(inputs));
-    console.log(inputs)
+    // console.log(inputs)
     return inputs
     
 
