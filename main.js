@@ -13,7 +13,8 @@ function createWindow () {
       contextIsolation: false,
       enableRemoteModule: true,
       preload: path.join(__dirname, 'preload.js')
-    }
+    },
+    icon: path.join(__dirname, './public/icons/icon_win.png')
   })
   
 
@@ -49,3 +50,6 @@ app.setName('Folder Wizard');
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
 
+if (process.platform === 'darwin') {
+  app.dock.setIcon(path.join(__dirname, './public/icons/icon_mac.png'));
+  }
