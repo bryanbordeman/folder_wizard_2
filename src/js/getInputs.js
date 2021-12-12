@@ -3,7 +3,7 @@ const log = require('./src/json/logs.json'); // location of logs
 
 function getOpportunityInput() {
     // collect input data from form and store in object called inputs
-    var project_name = document.getElementById("project-name").value
+    var project_name = document.getElementById("project-name").value.trim()
     var project_category = document.getElementById("project-category").value
     var project_type = document.getElementById("project-type").value
     var manager = document.getElementById("manager").value
@@ -25,7 +25,7 @@ function getOpportunityInput() {
     var customers = []
     for (i = 0; i <= listItems.length - 1; i++) {
         // substring to omit new line and * at from of string
-        customers.push(listItems[i].innerText.substring(2));
+        customers.push(listItems[i].innerText.substring(2).trim());
     }
     var quote_number = localStorage.getItem("quote_number"); //get local var
 
@@ -56,12 +56,12 @@ function getProjectInput() {
     var p_service = document.getElementById("p-service").checked
     var p_HSE = document.getElementById("p-HSE").checked
     var p_opportunity = document.getElementById("p-opportunity").value
-    var p_project_name = document.getElementById("p-project-name").value
+    var p_project_name = document.getElementById("p-project-name").value.trim()
     var p_project_category = document.getElementById("p-project-category").value
     var p_project_type = document.getElementById("p-project-type").value
     var p_project_zip = document.getElementById("p-project-zip").value
-    var p_project_terms = document.getElementById("p-project-terms").value
-    var p_customer = document.getElementById("p-customer").value
+    var p_project_terms = document.getElementById("p-project-terms").value.trim()
+    var p_customer = document.getElementById("p-customer").value.trim()
     var p_project_billing = document.getElementById("p-project-billing").value
     var p_project_order = document.getElementById("p-project-order").value
     var p_tax = document.getElementById("p-tax").checked

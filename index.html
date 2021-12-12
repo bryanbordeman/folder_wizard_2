@@ -119,7 +119,7 @@
               <div class="row">
                 <div class="col-sm-9">
                   <div class="form-floating  mb-3">
-                    <input type="text" id="customer" class="form-control" aria-describedby="button-addon2">
+                    <input type="text" id="customer" class="form-control" aria-describedby="button-addon2" onkeypress="return /[0-9a-zA-Z ]/i.test(event.key)">
                     <label for="floatingCustomer">Customer</label>
                     <div class="invalid-feedback">
                       Enter Customer.
@@ -288,7 +288,7 @@
               </div>
               <div class="col">
                 <div class="form-floating mb-3">
-                  <input type="text" id="p-customer" class="form-control" aria-describedby="button-addon2">
+                  <input type="text" id="p-customer" class="form-control" aria-describedby="button-addon2" onkeypress="return /[0-9a-zA-Z ]/i.test(event.key)">
                   <label for="floatingCustomer">Customer</label>
                   <div class="invalid-feedback">
                     Enter Customer.
