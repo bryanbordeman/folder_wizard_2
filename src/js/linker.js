@@ -187,6 +187,7 @@ function createOppReadme(currentPath){
             console.log(message);
             failReadme.setAttribute("style","display:none;");
             successReadme.setAttribute("style","display:inline;");
+            createOppTask()
             })
 
     pyshell.end(function (err) {
@@ -197,6 +198,26 @@ function createOppReadme(currentPath){
             successReadme.setAttribute("style","display:none;");
             failReadme.setAttribute("style","display:inline;");
         }
+    });
+};
+
+function createOppTask(){
+
+    var args = localStorage.getItem("opportunity-inputs"); //get local var
+    
+    var options = {
+        scriptPath : path.join(__dirname, './engine/'),
+        args : [args],
+        env: process.env,
+    }
+    let pyshell = new PythonShell('create_opp_task.py', options);
+
+    pyshell.on('message', function(message) {
+            console.log(message);
+            })
+
+    pyshell.end(function (err) {
+        console.log(err);
     });
 };
 

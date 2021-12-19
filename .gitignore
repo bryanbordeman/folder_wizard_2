@@ -1,5 +1,7 @@
 node_modules
 env
 engine/protaskinate.db
+src/json/credentials.json
+src/json/token.json
 release-builds
 .DS_Store
