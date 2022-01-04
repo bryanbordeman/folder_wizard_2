@@ -21,7 +21,7 @@ database = os.path.join(BASE_DIR, "protaskinate.db")
 def main():
     data_type = sys.argv[1]
     print(get_next_num(data_type))
-
+    # print(get_next_num("opportunity"))
 
 def get_next_num(data_type):
     '''fetch opportunity from database'''
@@ -38,6 +38,9 @@ def get_next_num(data_type):
 
         if current_quote_year == year:
             next_number = int(last_quote_number[4:])+1
+            for i in range(3):
+                if len(str(next_number)) < 3:
+                    next_number = '0' + str(next_number)
             next_number_str = f'Q{current_quote_year}-{str(next_number)}'
         else:
             next_number = '001'
