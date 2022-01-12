@@ -25,6 +25,10 @@
         "MRI-UNI"
       ],
       [
+        "FUJIFILM",
+        "MRI-FFM"
+      ],
+      [
         "Hallmarq",
         "MRI-HLM"
       ],
@@ -245,6 +249,10 @@
       [
         "Magnetic Shield Design",
         "SVE-MAG"
+      ],
+      [
+        "Linac Design",
+        "SVE-LIN"
       ],
       [
         "Physics Design",
