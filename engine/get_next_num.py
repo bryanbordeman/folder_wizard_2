@@ -21,7 +21,7 @@ database = os.path.join(BASE_DIR, "protaskinate.db")
 def main():
     data_type = sys.argv[1]
     print(get_next_num(data_type))
-    # print(get_next_num("opportunity"))
+    # print(get_next_num("service"))
 
 def get_next_num(data_type):
     '''fetch opportunity from database'''
@@ -75,15 +75,23 @@ def get_next_num(data_type):
         last_service_number = (table_str.fetchall()[0][1])
         current_service_year = last_service_number[:2]
 
+        # print(last_service_number)
+        # print(current_service_year)
+        # print(current_service_year == year)
+
         if current_service_year == year:
             next_number = int(last_service_number[-3:])+1
-            if len(str(next_number)) == 2:
-                next_number_str = f'{current_service_year}0{next_number}'
+            # print(len(str(next_number)))
+            if len(str(next_number)) == 1:
+                next_number_str = f'{str(current_service_year)}00{str(next_number)}'
+            elif len(str(next_number)) == 2:
+                next_number_str = f'{str(current_service_year)}0{str(next_number)}'
+                print(next_number_str)
             elif len(str(next_number)) == 3:
-                next_number_str = f'{current_service_year}{next_number}'
+                next_number_str = f'{str(current_service_year)}{str(next_number)}'
         else:
             next_number = '001'
-            next_number_str = f'{year}{next_number}'
+            next_number_str = f'{year}{str(next_number)}'
 
         return next_number_str
 
