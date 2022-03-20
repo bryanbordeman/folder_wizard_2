@@ -54,6 +54,7 @@ def create_project_folder(inputs):
     createFolder(f"{project_dir}/{f'{current_year}/' if inputs['p_sort'] != 'HSE' else ''}{project}/production")
     createFolder(f"{project_dir}/{f'{current_year}/' if inputs['p_sort'] != 'HSE' else ''}{project}/RFIs")
     createFolder(f"{project_dir}/{f'{current_year}/' if inputs['p_sort'] != 'HSE' else ''}{project}/Purchasing")
+    createFolder(f"{project_dir}/{f'{current_year}/' if inputs['p_sort'] != 'HSE' else ''}{project}/Purchasing/vendor_quotes")
     createFolder(f"{project_dir}/{f'{current_year}/' if inputs['p_sort'] != 'HSE' else ''}{project}/Material_Specs")
     createFolder(f"{project_dir}/{f'{current_year}/' if inputs['p_sort'] != 'HSE' else ''}{project}/quotes")
     createFolder(f"{project_dir}/{f'{current_year}/' if inputs['p_sort'] != 'HSE' else ''}{project}/contracts")
